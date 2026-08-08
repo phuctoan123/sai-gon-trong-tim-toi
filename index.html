@@ -83,9 +83,16 @@
   <div class="relative z-10 w-full px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
     <p class="reveal section-eyebrow text-gold mb-4" data-anim="up">Sài Gòn · 5 tháng 6 năm 1911</p>
 
-    <h1 class="reveal font-display italic font-semibold text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6" data-anim="up">
-      Bến Nhà Rồng
-    </h1>
+    <a href="flipbook.html" id="flipbook-trigger"
+       class="reveal font-display italic font-semibold text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 inline-block group no-underline" 
+       style="opacity: 1; transform: none;"
+       data-anim="up" title="Nhấn để xem album lịch sử">
+      <span class="relative inline-block text-paper">
+        Bến Nhà Rồng
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
+      </span>
+      <span class="block text-sm font-body font-normal not-italic text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+    </a>
 
     <p class="reveal max-w-xl text-lg md:text-xl text-paper/90 font-light mb-10" data-anim="up">
       Ngày 5/6/1911, Nguyễn Tất Thành rời Bến Nhà Rồng, bắt đầu hành trình tìm con đường giải phóng dân tộc.
@@ -871,6 +878,304 @@ document.addEventListener('click', (e) => {
   }
 });
 </script>
+
+<!-- ============================================================ -->
+<!-- PAGE TRANSITION — HIỆU ỨNG CHUYỂN TRANG SANG FLIPBOOK        -->
+<!-- ============================================================ -->
+<div id="page-transition" class="fixed inset-0 z-[200] pointer-events-none">
+  <!-- Lớp nền tối -->
+  <div id="pt-backdrop" class="absolute inset-0 bg-ink opacity-0 transition-opacity duration-700"></div>
+
+  <!-- Hiệu ứng cuốn sách mở từ giữa -->
+  <div id="pt-book-left" class="absolute top-0 left-0 w-1/2 h-full bg-paper origin-right" style="transform: perspective(2000px) rotateY(90deg); opacity: 0;"></div>
+  <div id="pt-book-right" class="absolute top-0 right-0 w-1/2 h-full bg-paper origin-left" style="transform: perspective(2000px) rotateY(-90deg); opacity: 0;"></div>
+
+  <!-- Chữ Bến Nhà Rồng bay vào -->
+  <div id="pt-title" class="absolute inset-0 flex items-center justify-center opacity-0" style="transform: scale(0.5);">
+    <div class="text-center">
+      <p class="text-gold text-xs tracking-[0.5em] uppercase mb-4">Sài Gòn · 1911</p>
+      <h2 class="font-display italic text-paper text-5xl md:text-7xl lg:text-8xl">Bến Nhà Rồng</h2>
+      <div class="w-24 h-px bg-gold/50 mx-auto my-6"></div>
+      <p class="text-paper/60 text-sm tracking-wider">Đang mở album lịch sử...</p>
+    </div>
+  </div>
+
+  <!-- Hiệu ứng hạt bay -->
+  <div id="pt-particles" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+</div>
+
+
+<script>
+// Đảm bảo DOM đã load
+document.addEventListener('DOMContentLoaded', function() {
+  const flipbookLink = document.getElementById('flipbook-trigger');
+  const transition = document.getElementById('page-transition');
+  const particlesContainer = document.getElementById('pt-particles');
+
+  console.log('Flipbook trigger found:', !!flipbookLink);
+  console.log('Transition found:', !!transition);
+
+  if (!flipbookLink || !transition) {
+    console.error('Missing elements for page transition');
+    return;
+  }
+
+  // Tạo particles
+  function createParticles() {
+    if (!particlesContainer) return;
+    particlesContainer.innerHTML = '';
+    const count = window.innerWidth < 768 ? 20 : 40;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'pt-particle';
+      const size = 2 + Math.random() * 4;
+      const isGold = Math.random() > 0.4;
+      p.style.cssText = 'width:' + size + 'px;height:' + size + 'px;background:' + (isGold ? '#C9A227' : '#9A2B2B') + ';left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 1.5) + 's;animation-duration:' + (1.5 + Math.random() * 2) + 's;opacity:' + (0.3 + Math.random() * 0.5) + ';';
+      particlesContainer.appendChild(p);
+    }
+  }
+
+  // Xử lý click
+  flipbookLink.addEventListener('click', function(e) {
+    console.log('Flipbook clicked!');
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Tạo particles
+    createParticles();
+
+    // Kích hoạt animation
+    transition.classList.add('pt-active');
+    transition.style.pointerEvents = 'auto';
+
+    console.log('pt-active added:', transition.classList.contains('pt-active'));
+
+    // Chuyển trang sau khi animation hoàn tất
+    setTimeout(function() {
+      window.location.href = 'flipbook.html';
+    }, 2000);
+  });
+});
+</script>
+
+</body>
+</html
+
+#flipbook-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#flipbook-modal:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Flipbook Container */
+.flipbook-container {
+  width: 90vw;
+  max-width: 900px;
+  height: 60vh;
+  max-height: 600px;
+}
+
+@media (min-width: 768px) {
+  .flipbook-container {
+    width: 800px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .flipbook-container {
+    width: 95vw;
+    height: 50vh;
+    min-height: 350px;
+  }
+}
+
+/* Page styling */
+#history-flipbook .page {
+  background: #F2EDE4;
+  border-radius: 4px;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
+}
+
+#history-flipbook .page-cover {
+  background: linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%);
+}
+
+#history-flipbook .page-cover .page-content {
+  color: #F2EDE4;
+}
+
+/* StPageFlip overrides */
+.stf__wrapper {
+  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+  border-radius: 8px;
+}
+
+.stf__block {
+  border-radius: 4px;
+}
+
+/* Page inner shadow for depth */
+.stf__item {
+  box-shadow: inset -10px 0 20px rgba(0,0,0,0.1);
+}
+
+/* Click hint animation */
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+#open-flipbook .underline-hint {
+  animation: pulse-hint 2s infinite;
+}
+
+/* Prevent body scroll when modal open */
+body.flipbook-open {
+  overflow: hidden;
+}
+
+/* Mobile landscape adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .flipbook-container {
+    height: 75vh;
+  }
+  #flipbook-modal h3 {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* ===== PAGE TRANSITION ANIMATION ===== */
+
+/* Đảm bảo transition overlay luôn ở trên cùng */
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Khi active, cho phép tương tác */
+#page-transition.pt-active {
+  pointer-events: auto;
+}
+
+/* Keyframes */
+@keyframes pt-book-open-left {
+  0% { transform: perspective(2000px) rotateY(90deg); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: perspective(2000px) rotateY(0deg); opacity: 1; }
+}
+
+@keyframes pt-book-open-right {
+  0% { transform: perspective(2000px) rotateY(-90deg); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: perspective(2000px) rotateY(0deg); opacity: 1; }
+}
+
+@keyframes pt-title-zoom {
+  0% { transform: scale(0.3) translateY(50px); opacity: 0; }
+  50% { transform: scale(1) translateY(0); opacity: 1; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+@keyframes pt-particle-float {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+@keyframes pt-gold-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(201,162,39,0.3); }
+  50% { box-shadow: 0 0 60px rgba(201,162,39,0.6), 0 0 100px rgba(201,162,39,0.2); }
+}
+
+/* Classes applied by JS */
+.pt-active #pt-backdrop {
+  opacity: 1;
+}
+
+.pt-active #pt-book-left {
+  animation: pt-book-open-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.pt-active #pt-book-right {
+  animation: pt-book-open-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+}
+
+.pt-active #pt-title {
+  animation: pt-title-zoom 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.pt-active #pt-particles .pt-particle {
+  animation: pt-particle-float 2s ease-out forwards;
+}
+
+/* Book spine effect */
+#pt-book-left::after,
+#pt-book-right::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 3px;
+}
+
+#pt-book-left::after {
+  right: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+}
+
+#pt-book-right::after {
+  left: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+}
+
+/* Texture on book pages */
+#pt-book-left,
+#pt-book-right {
+  background: 
+    linear-gradient(90deg, rgba(201,162,39,0.03) 0%, transparent 5%, transparent 95%, rgba(201,162,39,0.03) 100%),
+    #F2EDE4;
+}
+
+/* Particle styling */
+.pt-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Mobile: simplify transition */
+@media (max-width: 640px) {
+  @keyframes pt-book-open-left {
+    0% { transform: perspective(1000px) rotateY(90deg); opacity: 0; }
+    100% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
+  }
+  @keyframes pt-book-open-right {
+    0% { transform: perspective(1000px) rotateY(-90deg); opacity: 0; }
+    100% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
+  }
+  #pt-title h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .pt-active #pt-backdrop { transition: none; opacity: 1; }
+  .pt-active #pt-book-left { animation: none; transform: none; opacity: 1; }
+  .pt-active #pt-book-right { animation: none; transform: none; opacity: 1; }
+  .pt-active #pt-title { animation: none; transform: none; opacity: 1; }
+}
+
+>
 
 <!-- ============================================================ -->
 <!-- SCRIPT: GSAP ScrollTrigger — hiệu ứng cuộn & tương tác        -->

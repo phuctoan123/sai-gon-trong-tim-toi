@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bến Nhà Rồng — Album Lịch Sử</title>
+<meta name="description" content="Album lịch sử Bến Nhà Rồng — Hành trình của một dân tộc">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:   '#0B1220',
+          paper: '#F2EDE4',
+          gold:  '#C9A227',
+          flag:  '#9A2B2B',
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['"Be Vietnam Pro"', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<!-- StPageFlip CSS -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/css/page-flip.browser.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: #0B1220;
+    color: #F2EDE4;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  .flipbook-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(11,18,32,0.95) 0%, rgba(11,18,32,0.7) 70%, transparent 100%);
+  }
+
+  .flipbook-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F2EDE4;
+  }
+
+  .flipbook-header .subtitle {
+    font-size: 0.65rem;
+    color: #C9A227;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Close button */
+  .btn-close {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(242,237,228,0.2);
+    background: rgba(242,237,228,0.05);
+    color: #F2EDE4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-close:hover {
+    background: #C9A227;
+    color: #0B1220;
+    border-color: #C9A227;
+  }
+
+  /* Main layout */
+  .flipbook-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 2rem;
+  }
+
+  /* Flipbook container */
+  .flipbook-wrapper {
+    perspective: 2000px;
+    width: 90vw;
+    max-width: 900px;
+    height: 60vh;
+    max-height: 600px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .flipbook-wrapper {
+      width: 800px;
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .flipbook-wrapper {
+      width: 95vw;
+      height: 55vh;
+      min-height: 380px;
+    }
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    .flipbook-wrapper {
+      height: 70vh;
+    }
+    .flipbook-header h1 { font-size: 0.9rem; }
+  }
+
+  /* Page styling */
+  .page {
+    background: #F2EDE4;
+    border-radius: 3px;
+  }
+
+  .page-cover {
+    background: linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%);
+  }
+
+  .page-content {
+    width: 100%; height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .page-content { padding: 1rem; }
+  }
+
+  .page-content img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .page-content .page-label {
+    font-size: 0.65rem;
+    color: #C9A227;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .page-content .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0B1220;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .page-content .page-desc {
+    font-size: 0.8rem;
+    color: rgba(11,18,32,0.7);
+    line-height: 1.6;
+  }
+
+  .page-cover .page-content {
+    color: #F2EDE4;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .page-cover .page-content .page-title {
+    color: #F2EDE4;
+    font-size: 1.5rem;
+  }
+
+  .page-cover .page-content .page-desc {
+    color: rgba(242,237,228,0.8);
+  }
+
+  /* StPageFlip overrides */
+  .stf__wrapper {
+    box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+    border-radius: 6px;
+  }
+
+  .stf__block { border-radius: 4px; }
+
+  /* Controls */
+  .flipbook-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .flipbook-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,162,39,0.3);
+    background: rgba(201,162,39,0.1);
+    color: #C9A227;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .flipbook-btn:hover {
+    background: #C9A227;
+    color: #0B1220;
+    border-color: #C9A227;
+  }
+  .flipbook-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .page-indicator {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: #C9A227;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .flipbook-hint {
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    color: rgba(242,237,228,0.35);
+    text-align: center;
+  }
+
+  /* Loading */
+  .flipbook-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #0B1220;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: opacity 0.5s ease;
+  }
+  .flipbook-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .flipbook-loading .spinner {
+    width: 40px; height: 40px;
+    border: 2px solid rgba(201,162,39,0.2);
+    border-top-color: #C9A227;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+<base target="_blank">
+</head>
+
+<body>
+
+<!-- Loading -->
+<div class="flipbook-loading" id="loading">
+  <div class="spinner"></div>
+  <p class="text-gold text-sm tracking-wider">Đang tải album...</p>
+</div>
+
+<!-- Header -->
+<header class="flipbook-header">
+  <div>
+    <p class="subtitle">Album lịch sử</p>
+    <h1>Bến Nhà Rồng</h1>
+  </div>
+  <button class="btn-close" onclick="window.close()" title="Đóng" aria-label="Đóng">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+</header>
+
+<!-- Main -->
+<main class="flipbook-main">
+
+  <!-- Flipbook -->
+  <div class="flipbook-wrapper">
+    <div class="flipbook" id="history-flipbook">
+
+      <!-- Trang bìa trước -->
+      <div class="page page-cover" data-density="hard">
+        <div class="page-content">
+          <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">Sài Gòn · 1911</p>
+          <h2 class="page-title text-3xl md:text-4xl mb-3">Bến Nhà Rồng</h2>
+          <div class="w-16 h-px bg-gold/40 my-4"></div>
+          <p class="font-display italic text-paper/80 text-sm md:text-base">Hành Trình Của Một Dân Tộc</p>
+          <p class="text-paper/30 text-[10px] mt-8 tracking-wider">Nhấn góc trang để lật</p>
+        </div>
+      </div>
+
+      <!-- Trang 1: Bến Nhà Rồng xưa -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/baovinhlong.com.vn/27cec36de762cb98d23c235583094a1d67786028.jpg" 
+               alt="Bến Nhà Rồng năm 1911" 
+               loading="eager">
+          <p class="page-label">1911</p>
+          <h4 class="page-title">Bến Nhà Rồng — Cảng Sài Gòn</h4>
+          <p class="page-desc">Cảng Sài Gòn những năm đầu thế kỷ XX, nơi Nguyễn Tất Thành rời Tổ quốc để tìm đường cứu nước.</p>
+        </div>
+      </div>
+
+      <!-- Trang 2: Nguyễn Tất Thành & tàu Amiral -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/congnghieptauthuyvietnam.vn/60747500ae3454049a25f3372d0c7d9f3a3ed282.jpg" 
+               alt="Nguyễn Tất Thành và tàu Amiral Latouche-Tréville" 
+               loading="lazy">
+          <p class="page-label">5/6/1911</p>
+          <h4 class="page-title">Ngườỉ Thanh Niên Ra Đi</h4>
+          <p class="page-desc">Nguyễn Tất Thành lên tàu Amiral Latouche-Tréville, bắt đầu hành trình 30 năm bôn ba khắp thế giớỉ.</p>
+        </div>
+      </div>
+
+      <!-- Trang 3: Bến Nhà Rồng hiện tại -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/buulong.com.vn/b0c561abd36d1af86aaae03d2aa9ad929fc5b4ff.webp" 
+               alt="Bến Nhà Rồng ngày nay" 
+               loading="lazy">
+          <p class="page-label">Di tích lịch sử</p>
+          <h4 class="page-title">Bến Nhà Rồng Hôm Nay</h4>
+          <p class="page-desc">Ngày nay, Bến Nhà Rồng trở thành di tích lịch sử quốc gia, nơi lưu giữ ký ức hào hùng của dân tộc.</p>
+        </div>
+      </div>
+
+      <!-- Trang 4: Hành trình bôn ba -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/www.nxbctqg.org.vn/4506a8b5f697fe3e81785f96ee764238296c76d5.jpg" 
+               alt="Hành trình tìm đường cứu nước" 
+               loading="lazy">
+          <p class="page-label">1911 — 1941</p>
+          <h4 class="page-title">Ba Mươi Năm Bôn Ba</h4>
+          <p class="page-desc">Từ Âu sang Á, từ Phi sang Mỹ, Ngườỉ đi qua hơn 30 quốc gia, làm đủ nghề để học hỏi và tìm con đường cứu nước.</p>
+        </div>
+      </div>
+
+      <!-- Trang 5: Tàu Amiral trên biển -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/bcp.cdnchinhphu.vn/76198212bb0725265d04ae3d6b0fafae4d4e7fbe.jpg" 
+               alt="Tàu Amiral Latouche-Tréville" 
+               loading="lazy">
+          <p class="page-label">Con Tàu Lịch Sử</p>
+          <h4 class="page-title">Amiral Latouche-Tréville</h4>
+          <p class="page-desc">Con tàu Đô đốc Latouche-Tréville đã chở ngườỉ thanh niên yêu nước vượt đại dương, mở đầu hành trình thay đổi vận mệnh dân tộc.</p>
+        </div>
+      </div>
+
+      <!-- Trang 6: Bến Nhà Rồng xưa (ảnh màu) -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/media-cdn-v2.laodong.vn/5ed3203afc265751e9b7f0ce9cd8870cfb010a9b.jpg" 
+               alt="Bến Nhà Rồng thập niên 1900" 
+               loading="lazy">
+          <p class="page-label">Thập niên 1900</p>
+          <h4 class="page-title">Sài Gòn Đầu Thế Kỷ XX</h4>
+          <p class="page-desc">Những ngày cuối cùng của chế độ thực dân, nơi một thế hệ thanh niên Việt Nam thức tỉnh và tìm kiếm con đường độc lập.</p>
+        </div>
+      </div>
+
+      <!-- Trang bìa sau -->
+      <div class="page page-cover" data-density="hard">
+        <div class="page-content">
+          <div class="w-16 h-px bg-gold/40 mb-6"></div>
+          <p class="font-display italic text-paper/80 text-sm md:text-base text-center leading-relaxed">
+            "Một quyết định thay đổi<br>vận mệnh dân tộc..."
+          </p>
+          <div class="w-16 h-px bg-gold/40 my-6"></div>
+          <p class="text-paper/30 text-[10px] tracking-wider uppercase">Bến Nhà Rồng · 5/6/1911</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="flipbook-controls">
+    <button class="flipbook-btn" id="btn-prev" aria-label="Trang trước">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <span class="page-indicator" id="page-indicator">1 / 8</span>
+    <button class="flipbook-btn" id="btn-next" aria-label="Trang sau">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+  <p class="flipbook-hint">Nhấn góc trang hoặc dùng nút để lật · Vuốt trên mobile</p>
+
+</main>
+
+<!-- StPageFlip JS -->
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+<script>
+(function() {
+  const loading = document.getElementById('loading');
+  const flipbookEl = document.getElementById('history-flipbook');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const indicator = document.getElementById('page-indicator');
+
+  // Detect mobile
+  const isMobile = window.innerWidth < 768;
+
+  // Initialize PageFlip
+  const pageFlip = new St.PageFlip(flipbookEl, {
+    width: isMobile ? 300 : 400,
+    height: isMobile ? 450 : 500,
+    size: "fixed",
+    minWidth: 250,
+    maxWidth: 500,
+    minHeight: 350,
+    maxHeight: 700,
+    maxShadowOpacity: 0.5,
+    showCover: true,
+    mobileScrollSupport: true,
+    usePortrait: isMobile,
+    drawShadow: true,
+    flippingTime: 700,
+    startPage: 0,
+    autoSize: true,
+    swipeDistance: 30,
+  });
+
+  pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
+
+  // Hide loading
+  setTimeout(() => {
+    loading.classList.add('hidden');
+  }, 500);
+
+  // Update indicator
+  function updateIndicator() {
+    const current = pageFlip.getCurrentPageIndex() + 1;
+    const total = pageFlip.getPageCount();
+    indicator.textContent = current + ' / ' + total;
+
+    btnPrev.disabled = current <= 1;
+    btnNext.disabled = current >= total;
+  }
+
+  pageFlip.on('flip', updateIndicator);
+  updateIndicator();
+
+  // Button controls
+  btnPrev.addEventListener('click', () => pageFlip.flipPrev());
+  btnNext.addEventListener('click', () => pageFlip.flipNext());
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+    if (e.key === 'ArrowRight') pageFlip.flipNext();
+  });
+
+  // Resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => pageFlip.update(), 250);
+  });
+})();
+</script>
+
+</body>
+</html>
