@@ -1,0 +1,54 @@
+:root{
+    --ink:#0B1220; --paper:#F2EDE4; --gold:#C9A227; --flag:#9A2B2B; --jade:#2F4F44; --mist:#8792A2;
+}
+html{ scroll-behavior:smooth; }
+body{ background:var(--ink); font-family:'Be Vietnam Pro',sans-serif; }
+.font-display{ font-family:'Playfair Display',serif; }
+
+/* ===== Thanh "dòng chảy hành trình" — yếu tố đặc trưng của thiết kế =====
+     Một đường kẻ dọc bên trái (desktop) minh hoạ hành trình xuyên suốt trang,
+     được "vẽ" dần bằng stroke-dashoffset khi người dùng cuộn. */
+#journey-rail{
+    position:fixed; left:28px; top:0; height:100vh; width:2px; z-index:40;
+    display:none;
+}
+@media (min-width:1024px){ #journey-rail{ display:block; } }
+
+/* Thanh tiến trình mỏng phía trên cho mobile */
+#progress-top{
+    position:fixed; top:0; left:0; height:3px; width:100%; z-index:50;
+    background:linear-gradient(90deg, var(--ink), var(--gold), var(--flag), var(--jade));
+    transform-origin:left; transform:scaleX(0);
+}
+
+.reveal{ opacity:0; transform:translateY(28px); }
+
+.section-eyebrow{
+    letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; font-weight:600;
+}
+
+/* Video nền + lớp phủ tối cho Section mở đầu */
+.hero-overlay{
+    background:linear-gradient(180deg, rgba(79, 84, 95, 0.1) 0%, rgba(11,18,32,.35) 55%, rgba(11,18,32,.65) 100%);
+}
+
+.quote-mark{ font-family:'Playfair Display',serif; line-height:.6; }
+
+/* Điểm mốc trên trục thời gian hành trình 1911–1941 */
+.timeline-line{
+    background:linear-gradient(90deg, var(--gold), var(--flag));
+}
+.timeline-dot{
+    box-shadow:0 0 0 4px rgba(201,162,39,.18);
+}
+
+/* Nút audio tuỳ chỉnh cho phần Tuyên ngôn Độc lập */
+.audio-btn{ transition:transform .2s ease; }
+.audio-btn:active{ transform:scale(.94); }
+
+::selection{ background:var(--gold); color:var(--ink); }
+
+@media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ opacity:1 !important; transform:none !important; }
+}
