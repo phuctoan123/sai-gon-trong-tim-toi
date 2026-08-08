@@ -1,9 +1,23 @@
 :root{
-    --ink:#0B1220; --paper:#F2EDE4; --gold:#C9A227; --flag:#9A2B2B; --jade:#2F4F44; --mist:#8792A2;
+    --ink:#0B1220; 
+    --paper:#F2EDE4; 
+    --gold:#C9A227; 
+    --flag:#9A2B2B; 
+    --jade:#2F4F44; 
+    --mist:#8792A2;
 }
-html{ scroll-behavior:smooth; }
-body{ background:var(--ink); font-family:'Be Vietnam Pro',sans-serif; }
-.font-display{ font-family:'Playfair Display',serif; }
+html{ 
+    scroll-behavior:smooth; 
+}
+
+body{ 
+    background:var(--ink); 
+    font-family:'Be Vietnam Pro',sans-serif; 
+
+}
+.font-display{ 
+    font-family:'Playfair Display',serif; 
+}
 
 /* ===== Thanh "dòng chảy hành trình" — yếu tố đặc trưng của thiết kế =====
      Một đường kẻ dọc bên trái (desktop) minh hoạ hành trình xuyên suốt trang,
@@ -29,7 +43,33 @@ body{ background:var(--ink); font-family:'Be Vietnam Pro',sans-serif; }
 
 /* Video nền + lớp phủ tối cho Section mở đầu */
 .hero-overlay{
-    background:linear-gradient(180deg, rgba(79, 84, 95, 0.1) 0%, rgba(11,18,32,.35) 55%, rgba(11,18,32,.65) 100%);
+    background:linear-gradient(180deg, rgba(11,18,32,.20) 0%, rgba(11,18,32,.35) 55%, rgba(11,18,32,.65) 100%);
+}
+
+/* ===== Video nền dùng chung cho MỌI section ===== */
+.video-bg{
+    position:absolute; 
+    inset:0; 
+    width:100%; 
+    height:100%;
+    object-fit:cover; 
+    z-index:0;
+}
+
+/* Lớp phủ cho các section nền tối, chữ trắng (Section 2 & 4) */
+.overlay-ink{
+    background:linear-gradient(180deg, rgba(11,18,32,.62) 0%, rgba(11,18,32,.55) 45%, rgba(11,18,32,.85) 100%);
+}
+
+/* Lớp phủ cho section nền giấy sáng, chữ tối (Section 3) —
+   cần độ phủ cao để giữ độ tương phản cho chữ đen trên nền video */
+.overlay-paper{
+    background:linear-gradient(180deg, rgba(242,237,228,.90) 0%, rgba(242,237,228,.85) 45%, rgba(242,237,228,.94) 100%);
+}
+
+/* Lớp phủ cho section xanh ngọc, chữ trắng (Section 5) */
+.overlay-jade{
+    background:linear-gradient(180deg, rgba(47,79,68,.65) 0%, rgba(47,79,68,.55) 45%, rgba(47,79,68,.88) 100%);
 }
 
 .quote-mark{ font-family:'Playfair Display',serif; line-height:.6; }
@@ -51,4 +91,124 @@ body{ background:var(--ink); font-family:'Be Vietnam Pro',sans-serif; }
 @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     .reveal{ opacity:1 !important; transform:none !important; }
+}
+
+/* ===== Audio Player - Poster & Waveform ===== */
+#audio-poster-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+#audio-poster-wrapper.playing #poster-overlay {
+  opacity: 1;
+}
+
+#audio-poster-wrapper.playing .rounded-full {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(201, 162, 39, 0); }
+}
+
+/* Waveform */
+#waveform-container {
+  position: relative;
+  cursor: pointer;
+}
+
+#audio-waveform {
+  display: block;
+}
+
+/* Wave bars animation khi playing */
+.wave-bar {
+  transition: height 0.1s ease;
+}
+
+#audio-poster-wrapper.playing ~ div #waveform-container .wave-bar {
+  animation: wave-dance 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes wave-dance {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+
+/* ===== Before/After Slider - Ảnh không đổi size ===== */
+.before-after-container {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Cả hai layer đều absolute, full container */
+.ba-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Layer BEFORE: width thay đổi khi kéo, overflow hidden để clip */
+.ba-before-layer {
+  width: 50%; /* Giá trị khởi tạo, JS sẽ cập nhật */
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Ảnh trong layer BEFORE: cố định kích thước bằng container cha */
+.ba-before-layer .ba-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* QUAN TRỌNG: ảnh luôn full width của container cha, không phải của layer */
+  min-width: 100%;
+}
+
+/* Ảnh trong layer AFTER: bình thường */
+.ba-after-layer .ba-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Thanh slider */
+.ba-slider-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #C9A227;
+  z-index: 10;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+}
+
+.ba-slider-bar:hover {
+  background: #E8C547;
+}
+
+.ba-slider-bar:active {
+  background: #FFF;
+}
+
+/* Nút kéo */
+.ba-handle {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.before-after-container:hover .ba-handle {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+}
+
+.ba-handle:active {
+  transform: translate(-50%, -50%) scale(0.95) !important;
 }

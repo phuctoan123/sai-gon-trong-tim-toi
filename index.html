@@ -71,7 +71,7 @@
   <!-- Video nền, lặp vô hạn -->
   <video
     class="absolute inset-0 w-full h-full object-cover"
-    src="ben_nha_rong_view.mp4"
+    src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/ben_nha_rong_view.mp4"
     autoplay muted loop playsinline
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
     Trình duyệt của bạn không hỗ trợ video nền.
@@ -83,9 +83,7 @@
   <div class="relative z-10 w-full px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
     <p class="reveal section-eyebrow text-gold mb-4" data-anim="up">Sài Gòn · 5 tháng 6 năm 1911</p>
 
-    <h1 
-    class="reveal font-display italic font-semibold text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6" 
-    data-anim="up">
+    <h1 class="reveal font-display italic font-semibold text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6" data-anim="up">
       Bến Nhà Rồng
     </h1>
 
@@ -111,8 +109,18 @@
 <!-- ============================================================ -->
 <!-- SECTION 2 — HÀNH TRÌNH BÔN BA 1911–1941                      -->
 <!-- ============================================================ -->
-<section id="s2" class="relative bg-ink py-28 md:py-36 px-6 md:px-16 lg:px-24">
-  <div class="max-w-5xl mx-auto">
+<section id="s2" class="relative bg-ink py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
+
+  <!-- Video nền riêng cho Section 2 — thay src bằng link GitHub Releases của bạn -->
+  <video
+    class="video-bg"
+    src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/hanh_trinh_bon_ba.mp4"
+    autoplay muted loop playsinline
+    poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
+  </video>
+  <div class="overlay-ink absolute inset-0 z-[1]"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
     <p class="reveal section-eyebrow text-gold mb-4">1911 — 1941</p>
     <h2 class="reveal font-display font-semibold text-4xl md:text-5xl mb-8 leading-tight">
       Ba mươi năm bôn ba tìm đường cứu nước
@@ -162,72 +170,258 @@
 <!-- ============================================================ -->
 <!-- SECTION 3 — DI SẢN CỦA CHỦ TỊCH HỒ CHÍ MINH                  -->
 <!-- ============================================================ -->
-<section id="s3" class="relative bg-paper text-ink py-28 md:py-36 px-6 md:px-16 lg:px-24">
-  <div class="max-w-6xl mx-auto">
-    <p class="reveal section-eyebrow text-flag mb-4">Di sản</p>
+<!-- ============================================================ -->
+<!-- SECTION 3 — DI SẢN CỦA CHỦ TỊCH HỒ CHÍ MINH                  -->
+<!-- ============================================================ -->
+<!-- ============================================================ -->
+<!-- SECTION 3 — DI SẢN CỦA CHỦ TỊCH HỒ CHÍ MINH                  -->
+<!-- ============================================================ -->
+<section id="s3" class="relative bg-ink text-paper py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
+
+  <!-- Video nền riêng cho Section 3 -->
+  <video
+    class="video-bg"
+    src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/di_san.mp4"
+    autoplay muted loop playsinline
+    poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
+  </video>
+  <div class="overlay-ink absolute inset-0 z-[1]" style="opacity: 0.4;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <p class="reveal section-eyebrow text-gold mb-4">Di sản</p>
     <h2 class="reveal font-display font-semibold text-4xl md:text-5xl mb-16 leading-tight max-w-2xl">
       Di sản của Chủ tịch Hồ Chí Minh
     </h2>
 
     <!-- 4 ý chính -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-      <div class="reveal border-t-2 border-ink/10 pt-5" data-anim="up">
-        <p class="font-display text-3xl mb-2 text-flag">01</p>
+      <div class="reveal border-t-2 border-paper/20 pt-5" data-anim="up">
+        <p class="font-display text-3xl mb-2 text-gold">01</p>
         <h3 class="font-display text-xl font-semibold mb-2">Tư tưởng</h3>
-        <p class="text-ink/70 text-sm leading-relaxed">Hệ thống quan điểm toàn diện về độc lập dân tộc gắn liền với chủ nghĩa xã hội.</p>
+        <p class="text-paper/70 text-sm leading-relaxed">Hệ thống quan điểm toàn diện về độc lập dân tộc gắn liền với chủ nghĩa xã hội.</p>
       </div>
-      <div class="reveal border-t-2 border-ink/10 pt-5" data-anim="up">
-        <p class="font-display text-3xl mb-2 text-flag">02</p>
+      <div class="reveal border-t-2 border-paper/20 pt-5" data-anim="up">
+        <p class="font-display text-3xl mb-2 text-gold">02</p>
         <h3 class="font-display text-xl font-semibold mb-2">Đạo đức</h3>
-        <p class="text-ink/70 text-sm leading-relaxed">Tấm gương cần, kiệm, liêm, chính, chí công vô tư, suốt đời phục vụ nhân dân.</p>
+        <p class="text-paper/70 text-sm leading-relaxed">Tấm gương cần, kiệm, liêm, chính, chí công vô tư, suốt đời phục vụ nhân dân.</p>
       </div>
-      <div class="reveal border-t-2 border-ink/10 pt-5" data-anim="up">
-        <p class="font-display text-3xl mb-2 text-flag">03</p>
+      <div class="reveal border-t-2 border-paper/20 pt-5" data-anim="up">
+        <p class="font-display text-3xl mb-2 text-gold">03</p>
         <h3 class="font-display text-xl font-semibold mb-2">Tinh thần đoàn kết</h3>
-        <p class="text-ink/70 text-sm leading-relaxed">Xây dựng khối đại đoàn kết toàn dân tộc làm nền tảng cho mọi thắng lợi.</p>
+        <p class="text-paper/70 text-sm leading-relaxed">Xây dựng khối đại đoàn kết toàn dân tộc làm nền tảng cho mọi thắng lợi.</p>
       </div>
-      <div class="reveal border-t-2 border-ink/10 pt-5" data-anim="up">
-        <p class="font-display text-3xl mb-2 text-flag">04</p>
+      <div class="reveal border-t-2 border-paper/20 pt-5" data-anim="up">
+        <p class="font-display text-3xl mb-2 text-gold">04</p>
         <h3 class="font-display text-xl font-semibold mb-2">Bản Di chúc lịch sử</h3>
-        <p class="text-ink/70 text-sm leading-relaxed">Văn kiện thiêng liêng gửi lại cho toàn Đảng, toàn dân trước lúc đi xa.</p>
+        <p class="text-paper/70 text-sm leading-relaxed">Văn kiện thiêng liêng gửi lại cho toàn Đảng, toàn dân trước lúc đi xa.</p>
       </div>
     </div>
 
     <!-- Panorama 360° -->
     <div class="reveal mb-16" data-anim="up">
-      <div class="relative rounded-2xl overflow-hidden aspect-[21/9] bg-ink/90 flex items-center justify-center">
-        <img src="panorama_360_placeholder.jpg" alt="Ảnh panorama 360° không gian tưởng niệm" class="absolute inset-0 w-full h-full object-cover opacity-0" onerror="this.style.display='none'">
-        <div class="text-center px-6">
-          <p class="text-gold text-xs tracking-[0.3em] uppercase mb-2">Trải nghiệm 360°</p>
-          <p class="text-paper/70 text-sm">Ảnh panorama 360° không gian tưởng niệm — thay bằng tệp ảnh thực tế của bạn.</p>
+      <div class="relative rounded-2xl overflow-hidden aspect-[21/9] bg-ink/90 group cursor-pointer" id="panorama-wrapper">
+        <!-- Container Pannellum -->
+        <div id="panorama" class="w-full h-full"></div>
+        
+        <!-- Overlay hint khi chưa expand -->
+        <div id="panorama-hint" class="absolute inset-0 flex flex-col items-center justify-center bg-ink/40 group-hover:bg-ink/20 transition-all duration-300 pointer-events-none">
+          <div class="w-14 h-14 rounded-full bg-gold/90 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+              <path d="M21 3v5h-5"/>
+              <path d="M8 12s1.5-2 4-2 4 2 4 2"/>
+              <path d="M2 12s1.5-2 4-2 4 2 4 2"/>
+            </svg>
+          </div>
+          <p class="text-gold text-xs tracking-[0.3em] uppercase mb-1">Trải nghiệm 360°</p>
+          <p class="text-paper/70 text-sm">Nhấn để xem toàn màn hình</p>
         </div>
-        <span class="absolute top-4 right-4 text-[.65rem] tracking-[0.2em] uppercase bg-ink/70 text-gold px-3 py-1 rounded-full">360°</span>
+
+        <!-- Badge 360° -->
+        <span class="absolute top-4 right-4 text-[.65rem] tracking-[0.2em] uppercase bg-ink/70 text-gold px-3 py-1 rounded-full z-10">360°</span>
       </div>
     </div>
 
     <!-- Tuyên ngôn Độc lập — trình phát audio -->
-    <div class="reveal bg-ink text-paper rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6" data-anim="up">
-      <button id="audio-toggle" class="audio-btn shrink-0 w-16 h-16 rounded-full bg-gold text-ink flex items-center justify-center text-2xl" aria-label="Phát audio Tuyên ngôn Độc lập">
-        <span id="audio-icon">▶</span>
-      </button>
-      <div class="flex-1">
+    
+  <div class="reveal bg-paper/10 border border-paper/10 text-paper rounded-2xl p-8 md:p-10" data-anim="up">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      
+      <!-- Poster + nút play -->
+      <div class="relative shrink-0">
+        <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden relative group cursor-pointer" id="audio-poster-wrapper">
+          <img 
+            src="poster_tuyen_ngon.jpg" 
+            alt="Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập" 
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'"
+          >
+          <!-- Overlay tối khi play -->
+          <div id="poster-overlay" class="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-300"></div>
+          
+          <!-- Nút play/pause trên poster -->
+          <button id="audio-toggle" class="absolute inset-0 flex items-center justify-center" aria-label="Phát audio Tuyên ngôn Độc lập">
+            <div class="w-12 h-12 rounded-full bg-gold/90 text-ink flex items-center justify-center text-xl backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gold">
+              <span id="audio-icon">▶</span>
+            </div>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Thông tin + waveform -->
+      <div class="flex-1 min-w-0">
         <p class="section-eyebrow text-gold mb-1">2 tháng 9 năm 1945 · Quảng trường Ba Đình</p>
         <h3 class="font-display text-xl md:text-2xl font-semibold mb-1">Bác Hồ đọc Tuyên ngôn Độc lập</h3>
-        <p class="text-paper/60 text-sm">Nhấn nút để nghe trích đoạn (thay tệp audio thực tế vào thẻ &lt;audio&gt; bên dưới).</p>
+        <p class="text-paper/60 text-sm mb-4">Nhấn nút để nghe trích đoạn</p>
+        
+        <!-- Waveform container -->
+        <div class="relative h-12 w-full bg-ink/30 rounded-lg overflow-hidden" id="waveform-container">
+          <!-- Canvas vẽ wave -->
+          <canvas id="audio-waveform" class="absolute inset-0 w-full h-full"></canvas>
+          
+          <!-- Progress overlay -->
+          <div id="wave-progress" class="absolute inset-0 bg-gold/20 origin-left" style="transform: scaleX(0);"></div>
+          
+          <!-- Time display -->
+          <div class="absolute bottom-1 right-2 text-[.65rem] text-paper/50 font-mono" id="audio-time">00:00 / 00:00</div>
+        </div>
       </div>
-      <audio id="declaration-audio" src="tuyen_ngon_doc_lap.mp3" preload="none"></audio>
+      
     </div>
-  </div>
+  
+  <audio id="declaration-audio" src="audio_tuyen_ngon_doc_lap.m4a" preload="metadata"></audio>
+</div>
 </section>
+
+<!-- Modal fullscreen cho panorama -->
+<div id="panorama-modal" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-ink/95 backdrop-blur-sm" id="modal-backdrop"></div>
+  <button id="close-modal" class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-paper/10 hover:bg-paper/20 flex items-center justify-center text-paper transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <div id="panorama-fullscreen" class="absolute inset-4 md:inset-8 rounded-2xl overflow-hidden"></div>
+</div>
+
+<!-- Pannellum CSS & JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+<script>
+// Khởi tạo panorama nhỏ (preview)
+let smallViewer = null;
+let fullscreenViewer = null;
+
+function initSmallPanorama() {
+  smallViewer = pannellum.viewer('panorama', {
+    type: 'equirectangular',
+    panorama: 'vietnam_360.png', // Thay bằng đường dẫn ảnh 360° của bạn
+    autoLoad: true,
+    compass: false,
+    showZoomCtrl: false,
+    showFullscreenCtrl: false,
+    mouseZoom: false,
+    draggable: false, // Không cho kéo ở preview
+    disableKeyboardCtrl: true,
+    sceneFadeDuration: 0,
+    hfov: 100,
+    minHfov: 100,
+    maxHfov: 100,
+    pitch: 0,
+    yaw: 0,
+    autoRotate: -2, // Tự động xoay chậm
+    autoRotateInactivityDelay: 0
+  });
+}
+
+// Khởi tạo panorama fullscreen
+function initFullscreenPanorama() {
+  fullscreenViewer = pannellum.viewer('panorama-fullscreen', {
+    type: 'equirectangular',
+    panorama: 'vietnam_360.png', // Thay bằng đường dẫn ảnh 360° của bạn
+    autoLoad: true,
+    compass: true,
+    showZoomCtrl: true,
+    showFullscreenCtrl: true,
+    mouseZoom: true,
+    draggable: true,
+    disableKeyboardCtrl: false,
+    hfov: 120,
+    minHfov: 50,
+    maxHfov: 150,
+    pitch: 0,
+    yaw: 0,
+    autoRotate: -1
+  });
+}
+
+// Expand khi click
+document.getElementById('panorama-wrapper').addEventListener('click', function() {
+  const modal = document.getElementById('panorama-modal');
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  
+  // Destroy viewer cũ nếu có để tránh xung đột
+  if (fullscreenViewer) {
+    fullscreenViewer.destroy();
+  }
+  
+  // Khởi tạo viewer fullscreen
+  setTimeout(() => {
+    initFullscreenPanorama();
+  }, 100);
+});
+
+// Đóng modal
+document.getElementById('close-modal').addEventListener('click', closeModal);
+document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+
+function closeModal() {
+  const modal = document.getElementById('panorama-modal');
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+  
+  if (fullscreenViewer) {
+    fullscreenViewer.destroy();
+    fullscreenViewer = null;
+  }
+}
+
+// Đóng bằng ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+// Khởi tạo panorama nhỏ khi DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSmallPanorama);
+} else {
+  initSmallPanorama();
+}
+</script>
 
 <!-- ============================================================ -->
 <!-- SECTION 4 — VIỆT NAM TRÊN HÀNH TRÌNH PHÁT TRIỂN & HỘI NHẬP   -->
 <!-- ============================================================ -->
-<section id="s4" class="relative bg-ink py-28 md:py-36 px-6 md:px-16 lg:px-24">
-  <div class="max-w-6xl mx-auto">
+<section id="s4" class="relative bg-ink py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
+
+  <!-- Video nền riêng cho Section 4 -->
+  <video
+    class="video-bg"
+    src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/sai_gon_now.mp4"
+    autoplay muted loop playsinline
+    poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
+  </video>
+  <div class="overlay-ink absolute inset-0 z-[1]"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
     <p class="reveal section-eyebrow text-jade text-emerald-300 mb-4">Hôm nay</p>
     <h2 class="reveal font-display font-semibold text-4xl md:text-5xl mb-10 leading-tight max-w-3xl">
-      Việt Nam trên hành trình phát triển và hội nhập
+      Việt Nam trên hành trình hội nhập và phát triển
     </h2>
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-14">
@@ -245,8 +439,35 @@
           Nguyên là Tòa Đô chính Sài Gòn, xây dựng năm 1898–1909 theo phong cách kiến trúc
           Beaux-Arts, tọa lạc tại số 86 Lê Thánh Tôn, Quận 1.
         </p>
-        <div class="w-full aspect-video rounded-xl bg-ink/60 border border-paper/10 flex items-center justify-center text-paper/40 text-xs">
-          Ảnh minh hoạ địa danh
+        
+        <!-- Before/After Slider -->
+        <div class="before-after-container relative w-full aspect-video rounded-xl overflow-hidden select-none" id="ba-slider">
+          
+          <!-- Layer AFTER (mới) - nền, full size -->
+          <div class="ba-layer ba-after-layer absolute inset-0">
+            <img src="anh_moi.png" alt="Tòa Đô chính hiện tại" class="ba-img" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2F4F44 0%, #0B1220 100%)'">
+            <!-- Label AFTER -->
+            <!-- <span class="absolute top-3 right-3 bg-ink/70 text-gold text-[.65rem] tracking-[0.2em] uppercase px-2 py-1 rounded z-[5]">Nay</span> -->
+          </div>
+          
+          <!-- Layer BEFORE (cũ) - clip theo width, ảnh giữ nguyên size -->
+          <div class="ba-layer ba-before-layer absolute inset-0 overflow-hidden" id="ba-before" style="width: 50%;">
+            <img src="anh_cu.png" alt="Tòa Đô chính xưa" class="ba-img" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
+            <!-- Label BEFORE -->
+            <!-- <span class="absolute top-3 left-3 bg-ink/70 text-gold text-[.65rem] tracking-[0.2em] uppercase px-2 py-1 rounded z-[5]">Xưa</span> -->
+          </div>
+          
+          <!-- Thanh slider dọc -->
+          <div class="ba-slider-bar absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10" id="ba-bar" style="left: 50%;">
+            <!-- Nút kéo tròn -->
+            <div class="ba-handle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -254,7 +475,7 @@
     <blockquote class="reveal mt-20 max-w-3xl mx-auto text-center" data-anim="up">
       <span class="quote-mark text-flag text-5xl block mb-2">&ldquo;</span>
       <p class="font-display italic text-2xl md:text-3xl leading-snug mb-4">
-        Miền Nam yêu quý luôn ở trong trái tim tôi, là máu của máu Việt Nam, là thịt của thịt Việt Nam.
+        Miền Nam yêu quý luôn ở trong trái tim tôi, là máu của máu Việt Nam, là thịt của người Việt Nam.
       </p>
       <cite class="not-italic text-mist text-sm tracking-[0.2em] uppercase">— Hồ Chí Minh</cite>
     </blockquote>
@@ -264,11 +485,21 @@
 <!-- ============================================================ -->
 <!-- SECTION 5 — KỶ NGUYÊN VƯƠN MÌNH: PHƯỜNG BÌNH THẠNH           -->
 <!-- ============================================================ -->
-<section id="s5" class="relative bg-jade py-28 md:py-36 px-6 md:px-16 lg:px-24">
-  <div class="max-w-4xl mx-auto text-center">
+<section id="s5" class="relative bg-jade py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
+
+  <!-- Video nền riêng cho Section 5 — thay src bằng link GitHub Releases của bạn -->
+  <video
+    class="video-bg"
+    src="goc_quay_tru_so_ubnd.mp4"
+    autoplay muted loop playsinline
+    poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%232F4F44'/%3E%3C/svg%3E">
+  </video>
+  <div class="overlay-jade absolute inset-0 z-[1]"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
     <p class="reveal section-eyebrow text-gold mb-4">Ngày mai</p>
     <h2 class="reveal font-display font-semibold text-4xl md:text-6xl mb-8 leading-[1.05]">
-      Kỷ nguyên vươn mình<br class="hidden md:block"> của Phường Bình Thạnh
+      Kỷ nguyên vươn mình<br class="hidden md:block">
     </h2>
     <p class="reveal text-paper/85 text-lg leading-relaxed font-light max-w-2xl mx-auto" data-anim="up">
       Tiếp nối truyền thống cách mạng từ Bến Nhà Rồng, Phường Bình Thạnh hôm nay chung tay
@@ -289,9 +520,251 @@
 </footer>
 
 <!-- ============================================================ -->
+<!-- FLOATING VOTE WIDGET — Form Custom + Google Sheets            -->
+<!-- ============================================================ -->
+
+<!-- Nút chính -->
+<div id="vote-fab" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+  
+  <!-- Tooltip -->
+  <div id="vote-tooltip" class="bg-gold text-ink text-sm font-medium px-4 py-2 rounded-xl shadow-lg opacity-0 translate-y-2 transition-all duration-500 pointer-events-none whitespace-nowrap">
+    👆 Bình chọn cho website này!
+  </div>
+  
+  <!-- Nút -->
+  <button onclick="toggleVoteWidget()" 
+          class="group relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-gold text-ink flex items-center justify-center shadow-xl shadow-gold/30 hover:scale-110 transition-all duration-300">
+    <span id="fab-icon" class="text-xl md:text-2xl transition-transform duration-300">🗳️</span>
+    <span class="absolute inset-0 rounded-full bg-gold animate-ping opacity-20"></span>
+  </button>
+  
+</div>
+
+<!-- Panel Form -->
+<div id="vote-panel" class="fixed bottom-20 right-4 md:right-6 z-50 w-[92vw] max-w-[380px] bg-ink border border-paper/20 rounded-2xl shadow-2xl overflow-hidden hidden transition-all duration-300 origin-bottom-right scale-95 opacity-0">
+  
+  <!-- Header -->
+  <div class="flex items-center justify-between px-5 py-4 border-b border-paper/10 bg-paper/5">
+    <div class="flex items-center gap-2">
+      <span class="text-lg">🗳️</span>
+      <div>
+        <h4 class="font-display text-sm font-semibold text-paper">Bình chọn</h4>
+        <!-- <p class="text-[10px] text-paper/40">Cuộc thi Sáng tạo 2026</p> -->
+      </div>
+    </div>
+    <button onclick="toggleVoteWidget()" class="w-7 h-7 rounded-full bg-paper/10 hover:bg-paper/20 flex items-center justify-center text-paper/60 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Form -->
+  <div class="p-5">
+    
+    <form id="vote-form" onsubmit="submitVote(event)">
+      
+      <!-- Email -->
+      <div class="mb-4">
+        <label class="block text-paper/70 text-xs font-medium mb-1.5 tracking-wide uppercase">Email của bạn</label>
+        <input 
+          type="email" 
+          id="vote-email" 
+          required
+          placeholder="example@gmail.com"
+          class="w-full bg-paper/5 border border-paper/15 rounded-xl px-4 py-3 text-paper text-sm placeholder:text-paper/30 focus:outline-none focus:border-gold/50 focus:bg-paper/10 transition-all"
+        >
+      </div>
+      
+      <!-- Bình chọn -->
+      <div class="mb-4">
+        <label class="block text-paper/70 text-xs font-medium mb-2 tracking-wide uppercase">Bạn đánh giá website thế nào? <span class="text-flag">*</span></label>
+        
+        <div class="space-y-1.5">
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="radio" name="vote" value="Thích" required class="w-4 h-4 accent-gold">
+            <span class="text-paper/80 text-sm">Thích 💖</span>
+          </label>
+          
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="radio" name="vote" value="Không thích" required class="w-4 h-4 accent-gold">
+            <span class="text-paper/80 text-sm">Không thích 😭</span>
+          </label>
+
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="radio" name="vote" value="Laura coffee" required class="w-4 h-4 accent-gold">
+            <span class="text-paper/80 text-sm">Laura coffee ☕</span>
+          </label>
+        </div>
+      </div>
+      
+      <!-- Góp ý (tùy chọn) -->
+      <div class="mb-5">
+        <label class="block text-paper/70 text-xs font-medium mb-1.5 tracking-wide uppercase">Góp ý thêm <span class="text-paper/30 normal-case">(tùy chọn)</span></label>
+        <textarea 
+          id="vote-feedback" 
+          rows="2"
+          placeholder="Website cần cải thiện điều gì?"
+          class="w-full bg-paper/5 border border-paper/15 rounded-xl px-4 py-3 text-paper text-sm placeholder:text-paper/30 focus:outline-none focus:border-gold/50 focus:bg-paper/10 transition-all resize-none"
+        ></textarea>
+      </div>
+      
+      <!-- Submit -->
+      <button 
+        type="submit" 
+        id="vote-submit"
+        class="w-full bg-gold text-ink font-semibold py-3 rounded-xl hover:bg-gold/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <span id="submit-text">Gửi bình chọn</span>
+        <span id="submit-spinner" class="hidden w-4 h-4 border-2 border-ink/30 border-t-ink rounded-full animate-spin"></span>
+      </button>
+      
+    </form>
+    
+    <!-- Success state (ẩn mặc định) -->
+    <div id="vote-success" class="hidden text-center py-6">
+      <div class="w-16 h-16 rounded-full bg-jade/20 flex items-center justify-center mx-auto mb-4">
+        <span class="text-3xl">🎉</span>
+      </div>
+      <h5 class="font-display text-lg text-paper mb-2">Cảm ơn bạn!</h5>
+      <p class="text-paper/60 text-sm mb-4">Bình chọn của bạn đã được ghi nhận.</p>
+      <button onclick="toggleVoteWidget()" class="text-gold text-sm hover:underline">Đóng</button>
+    </div>
+    
+  </div>
+  
+  <!-- Footer -->
+  <div class="px-5 py-3 bg-paper/5 border-t border-paper/10 text-center">
+    <p class="text-[10px] text-paper/30">Những góp ý của bạn đều được trân quý</p>
+  </div>
+  
+</div>
+
+<script>
+// === THAY URL NÀY BẰNG URL APPS SCRIPT CỦA BẠN ===
+const VOTE_API_URL = 'https://script.google.com/macros/s/AKfycby06dmFd81WM77_ix-LES1sjXBvjm7G45iYMtSRu8Lf3lB2oaXZel9E0Zc-8p0KtN6W/exec';
+
+// Toggle
+function toggleVoteWidget() {
+  const panel = document.getElementById('vote-panel');
+  const icon = document.getElementById('fab-icon');
+  const isOpen = !panel.classList.contains('hidden');
+  
+  if (isOpen) {
+    panel.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => panel.classList.add('hidden'), 300);
+    icon.textContent = '🗳️';
+  } else {
+    panel.classList.remove('hidden');
+    panel.offsetHeight;
+    panel.classList.remove('scale-95', 'opacity-0');
+    icon.textContent = '✕';
+  }
+}
+
+// Submit vote
+// Submit vote — Dùng form-data (đáng tin cậy hơn JSON)
+async function submitVote(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('vote-email').value.trim();
+  const vote = document.querySelector('input[name="vote"]:checked')?.value;
+  const feedback = document.getElementById('vote-feedback').value.trim();
+  const submitBtn = document.getElementById('vote-submit');
+  const submitText = document.getElementById('submit-text');
+  const spinner = document.getElementById('submit-spinner');
+  
+  if (!email || !vote) {
+    alert('Vui lòng nhập email và chọn bình chọn!');
+    return;
+  }
+  
+  // Loading state
+  submitBtn.disabled = true;
+  submitText.textContent = 'Đang gửi...';
+  spinner.classList.remove('hidden');
+  
+  // Tạo form data
+  const formData = new URLSearchParams();
+  formData.append('email', email);
+  formData.append('vote', vote);
+  formData.append('feedback', feedback);
+  
+  try {
+    // Cách 1: Fetch với no-cors (không đọc response nhưng vẫn gửi được)
+    await fetch(VOTE_API_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString()
+    });
+    
+    // Vì no-cors không đọc response, đợi 1.5s rồi hiện success
+    setTimeout(() => {
+      showSuccess();
+      markVoted();
+    }, 1500);
+    
+  } catch (error) {
+    console.error('Vote error:', error);
+    // Vẫn hiện success vì thường vẫn gửi được
+    showSuccess();
+    markVoted();
+  }
+}
+
+function showSuccess() {
+  document.getElementById('vote-form').classList.add('hidden');
+  document.getElementById('vote-success').classList.remove('hidden');
+}
+
+function markVoted() {
+  localStorage.setItem('voted', 'true');
+  const btn = document.querySelector('#vote-fab button');
+  btn.classList.remove('bg-gold');
+  btn.classList.add('bg-jade');
+  document.querySelector('#vote-fab .animate-ping').style.display = 'none';
+}
+
+// Tooltip
+setTimeout(() => {
+  const tooltip = document.getElementById('vote-tooltip');
+  if (tooltip && !localStorage.getItem('voted')) {
+    tooltip.classList.remove('opacity-0', 'translate-y-2');
+    setTimeout(() => tooltip.classList.add('opacity-0', 'translate-y-2'), 5000);
+  }
+}, 2000);
+
+// Đã vote chưa
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('voted')) {
+    const btn = document.querySelector('#vote-fab button');
+    btn.classList.remove('bg-gold');
+    btn.classList.add('bg-jade');
+    document.querySelector('#vote-fab .animate-ping').style.display = 'none';
+  }
+});
+
+// Click ngoài đóng
+document.addEventListener('click', (e) => {
+  const panel = document.getElementById('vote-panel');
+  const fab = document.getElementById('vote-fab');
+  if (!panel.classList.contains('hidden') && 
+      !panel.contains(e.target) && 
+      !fab.contains(e.target)) {
+    toggleVoteWidget();
+  }
+});
+</script>
+
+<!-- ============================================================ -->
 <!-- SCRIPT: GSAP ScrollTrigger — hiệu ứng cuộn & tương tác        -->
 <!-- ============================================================ -->
 <!-- ===== JS riêng: hiệu ứng cuộn GSAP & tương tác ===== -->
+ 
 <script src="main.js"></script>
 
 </body>
