@@ -100,9 +100,15 @@
   </div>
 
   <!-- Gợi ý cuộn -->
-  <div class="absolute bottom-6 right-6 md:right-16 z-10 flex flex-col items-center gap-2 text-paper/70">
-    <span class="text-[.65rem] tracking-[0.3em] uppercase [writing-mode:vertical-rl]">Cuộn xuống</span>
-    <span id="scroll-cue" class="w-px h-10 bg-paper/50"></span>
+  <div class="absolute bottom-6 right-30 md:right-40 z-10 flex flex-col items-center gap-2 text-paper/70">
+    <span class="text-[.65rem] tracking-[0.5em] uppercase [writing-mode:vertical-rl]">Cuộn xuống</span>
+    
+    <div class="relative flex flex-col items-center">
+      <span id="scroll-cue" class="w-px h-10 bg-paper/50"></span>
+      <svg class="mt-0.5 text-paper/70" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -121,7 +127,7 @@
   <div class="overlay-ink absolute inset-0 z-[1]"></div>
 
   <div class="relative z-10 max-w-5xl mx-auto">
-    <p class="reveal section-eyebrow text-gold mb-4">1911 — 1941</p>
+    <p class="reveal section-eyebrow text-gold mb-4">Từ 1911 — đến 1941</p>
     <h2 class="reveal font-display font-semibold text-4xl md:text-5xl mb-8 leading-tight">
       Ba mươi năm bôn ba tìm đường cứu nước
     </h2>
@@ -168,32 +174,122 @@
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 3 — DI SẢN CỦA CHỦ TỊCH HỒ CHÍ MINH                  -->
+<!-- SECTION 2.5 — THÀNH LẬP ĐẢNG CỘNG SẢN VIỆT NAM (03/02/1930) -->
 <!-- ============================================================ -->
-<!-- ============================================================ -->
-<!-- SECTION 3 — DI SẢN CỦA CHỦ TỊCH HỒ CHÍ MINH                  -->
-<!-- ============================================================ -->
+<section id="s2-5" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+
+  <!-- Video nền — Desktop + Mobile -->
+  <video
+    id="s2-5-video"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/dang_thanh_lap.mp4"
+    poster="https://kimi-web-img.kimi.ai/img/media-cdn-v2.laodong.vn/dc037cb048374d11d18fce012c53889da0b1a5eb.jpg"
+    autoplay muted loop playsinline preload="auto"
+    decoding="async"
+    onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 50%, #2F4F44 100%)';"
+  >
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
+
+  <!-- Particles floating effect -->
+  <div class="absolute inset-0 z-[2] pointer-events-none overflow-hidden" id="party-particles"></div>
+
+  <!-- Nội dung chính -->
+  <div class="relative z-10 text-center w-full max-w-[900px] px-5 sm:px-6 md:px-8 py-20 sm:py-24 md:py-28 lg:py-36">
+
+    <!-- Eyebrow -->
+    <p class="reveal section-eyebrow text-gold mb-4 md:mb-6" data-anim="up" style="text-shadow: 0 2px 10px rgba(0,0,0,0.6);">
+      03 tháng 2 năm 1930 tại Hong Kong
+    </p>
+
+    <!-- Tiêu đề -->
+    <h2 class="reveal font-display font-bold text-paper mb-6 md:mb-8 leading-[1.05] md:leading-[1.1]" data-anim="up" 
+        style="font-size: clamp(1.75rem, 6vw, 3.5rem); text-shadow: 0 4px 30px rgba(0,0,0,0.7), 0 0 60px rgba(154,43,43,0.4), 0 2px 4px rgba(0,0,0,0.5);">
+      Thành lập Đảng Cộng sản Việt Nam
+    </h2>
+
+    <!-- Sự kiện chính -->
+    <p class="reveal text-paper/90 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-8 md:mb-10 max-w-[700px] mx-auto px-2 sm:px-0" data-anim="up"
+       style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
+      Hội nghị thống nhất thành lập Đảng Cộng sản Việt Nam được tổ chức tại Hong Kong,
+      đánh dấu bước ngoặt lịch sử trong tiến trình cách mạng dân tộc.
+    </p>
+
+    <!-- 2 Ý nghĩa chính — card trong suốt -->
+    <div class="reveal flex flex-col gap-4 md:gap-5 mb-10 md:mb-12 max-w-[650px] mx-auto" data-anim="up">
+
+      <!-- Card 1 — Trong suốt -->
+      <div class="party-card flex items-start gap-3 md:gap-4 text-left rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 hover:-translate-y-0.5"
+           style="background: transparent; border: 1px solid rgba(201,162,39,0.15);">
+        <div class="shrink-0 w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center text-sm md:text-base mt-0.5" 
+             style="background: linear-gradient(135deg, #C9A227, #9A2B2B);">⭐</div>
+        <div>
+          <h3 class="text-gold font-semibold text-sm md:text-base mb-1">Lực lượng lãnh đạo thống nhất</h3>
+          <p class="text-paper/80 text-xs sm:text-sm md:text-base leading-relaxed">
+            Đây là dấu mốc quan trọng, tạo nên lực lượng lãnh đạo thống nhất cho cách mạng Việt Nam,
+            tập hợp tinh hoa yêu nước dưới một ngọn cờ duy nhất.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 — Trong suốt -->
+      <div class="party-card flex items-start gap-3 md:gap-4 text-left rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 hover:-translate-y-0.5"
+           style="background: transparent; border: 1px solid rgba(201,162,39,0.15);">
+        <div class="shrink-0 w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center text-sm md:text-base mt-0.5" 
+             style="background: linear-gradient(135deg, #C9A227, #9A2B2B);">🚩</div>
+        <div>
+          <h3 class="text-gold font-semibold text-sm md:text-base mb-1">Cách mạng Tháng Tám 1945</h3>
+          <p class="text-paper/80 text-xs sm:text-sm md:text-base leading-relaxed">
+            Dưới sự lãnh đạo của Đảng, Cách mạng Tháng Tám năm 1945 giành thắng lợi,
+            khai sinh nước Việt Nam Dân chủ Cộng hòa — nhà nước dân chủ nhân dân đầu tiên ở Đông Nam Á.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Trích dẫn nổi bật -->
+    <div 
+    class="reveal max-w-[700px] mx-auto rounded-r-xl md:rounded-r-2xl p-6 sm:p-8 md:p-10" data-anim="up"
+    style="background: rgba(11,18,32,0.1); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(12px); border-left: 3px solid #C9A227;">
+      <span class="quote-mark text-gold text-4xl md:text-5xl block mb-1 md:mb-2">&ldquo;</span>
+      <p class="font-display italic text-paper text-lg sm:text-xl md:text-2xl leading-relaxed" 
+        style="text-shadow: 0 2px 15px rgba(0,0,0,0.5);">
+        Sự ra đờỉ của Đảng tạo nền tảng để dân tộc giành độc lập và phát triển.
+      </p>
+    </div>
+
+
+  </div>
+</section>
+
+
 <!-- ============================================================ -->
 <!-- SECTION 3 — DI SẢN CỦA CHỦ TỊCH HỒ CHÍ MINH                  -->
 <!-- ============================================================ -->
 <section id="s3" class="relative bg-ink text-paper py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
 
-  <!-- Video nền riêng cho Section 3 -->
+  <!-- Video nền — Desktop + Mobile -->
   <video
-    class="video-bg"
+    id="s3-video"
+    class="absolute inset-0 w-full h-full object-cover z-0"
     src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/di_san.mp4"
-    autoplay muted loop playsinline
-    poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
+    poster="https://kimi-web-img.kimi.ai/img/truongchinhtrithainguyen.gov.vn/b7e0c82f916ed17bd8495ff5f3fea94e2c4ba990.jpg"
+    autoplay muted loop playsinline preload="auto"
+    decoding="async"
+    onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #0B1220 0%, #1a1a2e 50%, #0B1220 100%)';"
+  >
+    Trình duyệt của bạn không hỗ trợ video.
   </video>
-  <div class="overlay-ink absolute inset-0 z-[1]" style="opacity: 0.4;"></div>
 
+  
   <div class="relative z-10 max-w-6xl mx-auto">
     <p class="reveal section-eyebrow text-gold mb-4">Di sản</p>
     <h2 class="reveal font-display font-semibold text-4xl md:text-5xl mb-16 leading-tight max-w-2xl">
       Di sản của Chủ tịch Hồ Chí Minh
     </h2>
 
-    <!-- 4 ý chính -->
+    <!-- 4 ý chính — card trong suốt -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
       <div class="reveal border-t-2 border-paper/20 pt-5" data-anim="up">
         <p class="font-display text-3xl mb-2 text-gold">01</p>
@@ -243,54 +339,54 @@
     </div>
 
     <!-- Tuyên ngôn Độc lập — trình phát audio -->
-    
-  <div class="reveal bg-paper/10 border border-paper/10 text-paper rounded-2xl p-8 md:p-10" data-anim="up">
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-      
-      <!-- Poster + nút play -->
-      <div class="relative shrink-0">
-        <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden relative group cursor-pointer" id="audio-poster-wrapper">
-          <img 
-            src="poster_tuyen_ngon.jpg" 
-            alt="Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập" 
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'"
-          >
-          <!-- Overlay tối khi play -->
-          <div id="poster-overlay" class="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-300"></div>
-          
-          <!-- Nút play/pause trên poster -->
-          <button id="audio-toggle" class="absolute inset-0 flex items-center justify-center" aria-label="Phát audio Tuyên ngôn Độc lập">
-            <div class="w-12 h-12 rounded-full bg-gold/90 text-ink flex items-center justify-center text-xl backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gold">
-              <span id="audio-icon">▶</span>
-            </div>
-          </button>
-        </div>
-      </div>
-      
-      <!-- Thông tin + waveform -->
-      <div class="flex-1 min-w-0">
-        <p class="section-eyebrow text-gold mb-1">2 tháng 9 năm 1945 · Quảng trường Ba Đình</p>
-        <h3 class="font-display text-xl md:text-2xl font-semibold mb-1">Bác Hồ đọc Tuyên ngôn Độc lập</h3>
-        <p class="text-paper/60 text-sm mb-4">Nhấn nút để nghe trích đoạn</p>
+    <div class="reveal bg-paper/10 border border-paper/10 text-paper rounded-2xl p-8 md:p-10" data-anim="up">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
         
-        <!-- Waveform container -->
-        <div class="relative h-12 w-full bg-ink/30 rounded-lg overflow-hidden" id="waveform-container">
-          <!-- Canvas vẽ wave -->
-          <canvas id="audio-waveform" class="absolute inset-0 w-full h-full"></canvas>
-          
-          <!-- Progress overlay -->
-          <div id="wave-progress" class="absolute inset-0 bg-gold/20 origin-left" style="transform: scaleX(0);"></div>
-          
-          <!-- Time display -->
-          <div class="absolute bottom-1 right-2 text-[.65rem] text-paper/50 font-mono" id="audio-time">00:00 / 00:00</div>
+        <!-- Poster + nút play -->
+        <div class="relative shrink-0">
+          <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden relative group cursor-pointer" id="audio-poster-wrapper">
+            <img 
+              src="poster_tuyen_ngon.jpg" 
+              alt="Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'"
+            >
+            <!-- Overlay tối khi play -->
+            <div id="poster-overlay" class="absolute inset-0 bg-ink/40 opacity-0 transition-opacity duration-300"></div>
+            
+            <!-- Nút play/pause trên poster -->
+            <button id="audio-toggle" class="absolute inset-0 flex items-center justify-center" aria-label="Phát audio Tuyên ngôn Độc lập">
+              <div class="w-12 h-12 rounded-full bg-gold/90 text-ink flex items-center justify-center text-xl backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-gold">
+                <span id="audio-icon">▶</span>
+              </div>
+            </button>
+          </div>
         </div>
+        
+        <!-- Thông tin + waveform -->
+        <div class="flex-1 min-w-0">
+          <p class="section-eyebrow text-gold mb-1">2 tháng 9 năm 1945 · Quảng trường Ba Đình</p>
+          <h3 class="font-display text-xl md:text-2xl font-semibold mb-1">Bác Hồ đọc Tuyên ngôn Độc lập</h3>
+          <p class="text-paper/60 text-sm mb-4">Nhấn nút để nghe trích đoạn</p>
+          
+          <!-- Waveform container -->
+          <div class="relative h-12 w-full bg-ink/30 rounded-lg overflow-hidden" id="waveform-container">
+            <!-- Canvas vẽ wave -->
+            <canvas id="audio-waveform" class="absolute inset-0 w-full h-full"></canvas>
+            
+            <!-- Progress overlay -->
+            <div id="wave-progress" class="absolute inset-0 bg-gold/20 origin-left" style="transform: scaleX(0);"></div>
+            
+            <!-- Time display -->
+            <div class="absolute bottom-1 right-2 text-[.65rem] text-paper/50 font-mono" id="audio-time">00:00 / 00:00</div>
+          </div>
+        </div>
+        
       </div>
-      
+    
+      <audio id="declaration-audio" src="audio_tuyen_ngon_doc_lap.m4a" preload="metadata"></audio>
     </div>
-  
-  <audio id="declaration-audio" src="audio_tuyen_ngon_doc_lap.m4a" preload="metadata"></audio>
-</div>
+  </div>
 </section>
 
 <!-- Modal fullscreen cho panorama -->
@@ -416,7 +512,8 @@ if (document.readyState === 'loading') {
     autoplay muted loop playsinline
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
   </video>
-  <div class="overlay-ink absolute inset-0 z-[1]"></div>
+  <!-- Lớp phủ tối rất nhẹ để chữ đọc được -->
+  <div class="absolute inset-0 z-[1]" style="background: rgba(11, 18, 32, 0.3);"></div>
 
   <div class="relative z-10 max-w-6xl mx-auto">
     <p class="reveal section-eyebrow text-jade text-emerald-300 mb-4">Hôm nay</p>
@@ -431,8 +528,8 @@ if (document.readyState === 'loading') {
         hàng đầu cả nước — nơi tiếp nối tinh thần dấn thân của Bến Nhà Rồng năm xưa bằng
         khát vọng vươn ra biển lớn của hôm nay.
       </p>
-
-      <div class="reveal lg:col-span-2 bg-paper/5 border border-paper/10 rounded-2xl p-8" data-anim="up">
+    </div>
+    <div class="reveal lg:col-span-2 bg-paper/5 border border-paper/10 rounded-2xl p-8" data-anim="up">
         <p class="section-eyebrow text-gold mb-3">Địa danh</p>
         <h3 class="font-display text-xl font-semibold mb-3">Trụ sở HĐND &amp; UBND TP.HCM</h3>
         <p class="text-paper/70 text-sm leading-relaxed mb-4">
@@ -470,7 +567,6 @@ if (document.readyState === 'loading') {
           
         </div>
       </div>
-    </div>
 
     <blockquote class="reveal mt-20 max-w-3xl mx-auto text-center" data-anim="up">
       <span class="quote-mark text-flag text-5xl block mb-2">&ldquo;</span>
@@ -485,23 +581,25 @@ if (document.readyState === 'loading') {
 <!-- ============================================================ -->
 <!-- SECTION 5 — KỶ NGUYÊN VƯƠN MÌNH: PHƯỜNG BÌNH THẠNH           -->
 <!-- ============================================================ -->
-<section id="s5" class="relative bg-jade py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
+<section id="s5" class="relative py-28 md:py-36 px-6 md:px-16 lg:px-24 overflow-hidden">
 
-  <!-- Video nền riêng cho Section 5 — thay src bằng link GitHub Releases của bạn -->
+  <!-- Video nền — không overlay, không màu nền -->
   <video
-    class="video-bg"
+    class="absolute inset-0 w-full h-full object-cover"
     src="goc_quay_tru_so_ubnd.mp4"
     autoplay muted loop playsinline
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%232F4F44'/%3E%3C/svg%3E">
   </video>
-  <div class="overlay-jade absolute inset-0 z-[1]"></div>
+
+  <!-- Lớp phủ tối rất nhẹ để chữ đọc được -->
+  <div class="absolute inset-0 z-[1]" style="background: rgba(11, 18, 32, 0.3);"></div>
 
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <p class="reveal section-eyebrow text-gold mb-4">Ngày mai</p>
-    <h2 class="reveal font-display font-semibold text-4xl md:text-6xl mb-8 leading-[1.05]">
+    <h2 class="reveal font-display font-semibold text-4xl md:text-6xl mb-8 leading-[1.05] text-paper">
       Kỷ nguyên vươn mình<br class="hidden md:block">
     </h2>
-    <p class="reveal text-paper/85 text-lg leading-relaxed font-light max-w-2xl mx-auto" data-anim="up">
+    <p class="reveal text-paper/90 text-lg leading-relaxed font-light max-w-2xl mx-auto" data-anim="up">
       Tiếp nối truyền thống cách mạng từ Bến Nhà Rồng, Phường Bình Thạnh hôm nay chung tay
       xây dựng một đô thị văn minh, hiện đại, nghĩa tình — hướng tới sự phát triển bền vững
       cho các thế hệ mai sau.
@@ -528,7 +626,7 @@ if (document.readyState === 'loading') {
   
   <!-- Tooltip -->
   <div id="vote-tooltip" class="bg-gold text-ink text-sm font-medium px-4 py-2 rounded-xl shadow-lg opacity-0 translate-y-2 transition-all duration-500 pointer-events-none whitespace-nowrap">
-    👆 Bình chọn cho website này!
+    Bình chọn cho website này!
   </div>
   
   <!-- Nút -->
@@ -575,7 +673,21 @@ if (document.readyState === 'loading') {
           placeholder="example@gmail.com"
           class="w-full bg-paper/5 border border-paper/15 rounded-xl px-4 py-3 text-paper text-sm placeholder:text-paper/30 focus:outline-none focus:border-gold/50 focus:bg-paper/10 transition-all"
         >
+        <span id="email-error" class="hidden text-red-500 text-xs mt-1">Email không hợp lệ, vui lòng nhập lại !</span>
       </div>
+      <script>
+        const emailInput = document.getElementById('vote-email');
+        const errorSpan = document.getElementById('email-error');
+
+        // Kiểm tra khi người dùng rời khỏi ô input
+        emailInput.addEventListener('blur', () => {
+          if (emailInput.validity.valid) {
+            errorSpan.classList.add('hidden');
+          } else {
+            errorSpan.classList.remove('hidden');
+          }
+        });
+      </script>
       
       <!-- Bình chọn -->
       <div class="mb-4">
@@ -628,7 +740,7 @@ if (document.readyState === 'loading') {
         <span class="text-3xl">🎉</span>
       </div>
       <h5 class="font-display text-lg text-paper mb-2">Cảm ơn bạn!</h5>
-      <p class="text-paper/60 text-sm mb-4">Bình chọn của bạn đã được ghi nhận.</p>
+      <p class="text-paper/60 text-sm mb-4">Vote của bạn đã được ghi nhận.</p>
       <button onclick="toggleVoteWidget()" class="text-gold text-sm hover:underline">Đóng</button>
     </div>
     

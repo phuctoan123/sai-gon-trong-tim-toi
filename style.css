@@ -212,3 +212,12 @@ body{
 .ba-handle:active {
   transform: translate(-50%, -50%) scale(0.95) !important;
 }
+
+#scroll-cue + svg {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
