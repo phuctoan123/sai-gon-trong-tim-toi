@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Việt Nam Hội Nhập & Phát Triển — TP.HCM Vươn Tầm</title>
+<meta name="description" content="Album lịch sử Bến Nhà Rồng — Hành trình của một dân tộc">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:   '#0B1220',
+          paper: '#F2EDE4',
+          gold:  '#C9A227',
+          flag:  '#9A2B2B',
+        },
+        fontFamily: {
+          display: ['"Playfair Display"', 'serif'],
+          body: ['"Be Vietnam Pro"', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<!-- StPageFlip CSS -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/css/page-flip.browser.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: #0B1220;
+    color: #F2EDE4;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  .flipbook-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(11,18,32,0.95) 0%, rgba(11,18,32,0.7) 70%, transparent 100%);
+  }
+
+  .flipbook-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #F2EDE4;
+  }
+
+  .flipbook-header .subtitle {
+    font-size: 0.65rem;
+    color: #C9A227;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+ /* Back to index button */
+.btn-back {
+  min-height: 40px;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(242,237,228,0.2);
+  background: rgba(242,237,228,0.05);
+  color: #F2EDE4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-back:hover {
+  background: #C9A227;
+  color: #0B1220;
+  border-color: #C9A227;
+  transform: translateX(-2px);
+}
+
+.btn-back svg {
+  flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .btn-back {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .btn-back span {
+    display: none;
+  }
+}
+
+  /* Main layout */
+  .flipbook-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 2rem;
+  }
+
+  /* Flipbook container */
+  .flipbook-wrapper {
+    perspective: 2000px;
+    width: 90vw;
+    max-width: 900px;
+    height: 60vh;
+    max-height: 600px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .flipbook-wrapper {
+      width: 800px;
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .flipbook-wrapper {
+      width: 95vw;
+      height: 55vh;
+      min-height: 380px;
+    }
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    .flipbook-wrapper {
+      height: 70vh;
+    }
+    .flipbook-header h1 { font-size: 0.9rem; }
+  }
+
+  /* Page styling */
+  .page {
+    background: #F2EDE4;
+    border-radius: 3px;
+  }
+
+  .page-cover {
+    background: linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%);
+  }
+
+  .page-content {
+    width: 100%; height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .page-content { padding: 1rem; }
+  }
+
+  .page-content img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .page-content .page-label {
+    font-size: 0.65rem;
+    color: #C9A227;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .page-content .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0B1220;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .page-content .page-desc {
+    font-size: 0.8rem;
+    color: rgba(11,18,32,0.7);
+    line-height: 1.6;
+  }
+
+  .page-cover .page-content {
+    color: #F2EDE4;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .page-cover .page-content .page-title {
+    color: #F2EDE4;
+    font-size: 1.5rem;
+  }
+
+  .page-cover .page-content .page-desc {
+    color: rgba(242,237,228,0.8);
+  }
+
+  /* StPageFlip overrides */
+  .stf__wrapper {
+    box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+    border-radius: 6px;
+  }
+
+  .stf__block { border-radius: 4px; }
+
+  /* Controls */
+  .flipbook-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .flipbook-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,162,39,0.3);
+    background: rgba(201,162,39,0.1);
+    color: #C9A227;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .flipbook-btn:hover {
+    background: #C9A227;
+    color: #0B1220;
+    border-color: #C9A227;
+  }
+  .flipbook-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .page-indicator {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: #C9A227;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .flipbook-hint {
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    color: rgba(242,237,228,0.35);
+    text-align: center;
+  }
+
+  /* Loading */
+  .flipbook-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #0B1220;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: opacity 0.5s ease;
+  }
+  .flipbook-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .flipbook-loading .spinner {
+    width: 40px; height: 40px;
+    border: 2px solid rgba(201,162,39,0.2);
+    border-top-color: #C9A227;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+<base target="_blank">
+</head>
+
+<body>
+
+<!-- Loading -->
+<div class="flipbook-loading" id="loading">
+  <div class="spinner"></div>
+  <p class="text-gold text-sm tracking-wider">Đang tải album...</p>
+</div>
+
+<!-- Header -->
+<header class="flipbook-header">
+  <div>
+    <p class="subtitle">Hành trình hội nhập · TP.HCM hôm nay</p>
+    <h1>Việt Nam Phát Triển</h1>
+  </div>
+  <a
+    href="index.html"
+    class="btn-back"
+    title="Quay lại trang chính"
+    aria-label="Quay lại trang chính"
+    >
+    <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <path d="M19 12H5"></path>
+        <path d="M12 19l-7-7 7-7"></path>
+    </svg>
+
+
+
+  </a>
+</header>
+
+<!-- Main -->
+<main class="flipbook-main">
+
+  <!-- Flipbook -->
+  <div class="flipbook-wrapper">
+    <div class="flipbook" id="history-flipbook">
+
+            <!-- Trang bìa trước -->
+      <div class="page page-cover" data-density="hard">
+        <div class="page-content">
+          <p class="text-gold text-xs tracking-[0.4em] uppercase mb-4">Hội nhập · Phát triển · Vươn cao</p>
+          <h2 class="page-title text-2xl md:text-3xl mb-3 leading-tight">Việt Nam Trên<br>Hành Trình<br>Hội Nhập</h2>
+          <div class="w-16 h-px bg-gold/40 my-4"></div>
+          <p class="font-display italic text-paper/80 text-sm">TP.HCM — Động lực tăng trưởng của cả nước</p>
+          <p class="text-paper/30 text-[10px] mt-8 tracking-wider">Nhấn góc trang để lật</p>
+        </div>
+      </div>
+
+      <!-- Trang 1: Landmark 81 -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Landmark_81_%28cropped%29.jpg/640px-Landmark_81_%28cropped%29.jpg" 
+               alt="Landmark 81 — tòa nhà cao nhất Việt Nam" 
+               class="w-full h-[55%] object-cover rounded-lg mb-4"
+               loading="eager"
+               onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-landmark').style.display='flex'">
+          <div class="fallback-landmark hidden w-full h-[55%] bg-gradient-to-br from-gold/30 to-ink/40 rounded-lg mb-4 items-center justify-center">
+            <span class="text-gold/50 text-5xl">🏙️</span>
+          </div>
+          <p class="page-label" style="color:#C9A227; font-weight:600">🏙️ Tòa nhà cao nhất Việt Nam</p>
+          <h4 class="page-title">Landmark 81 — 461,3 mét</h4>
+          <p class="page-desc">Khánh thành 2018, thiết kế lấy cảm hứng từ <strong>bó tre truyền thống</strong> — biểu tượng sự đoàn kết và sức mạnh kiên cường. Top 15 tòa nhà cao nhất thế giới, tích hợp Vincom Center, khách sạn Vinpearl 5 sao, đài quan sát SkyView tầng 79–81. Đầu tư 300 triệu USD, tổng diện tích 141.200 m².</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">81 tầng</span>
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">Bình Thạnh</span>
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">2018</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang 2: Bitexco Financial Tower -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Bitexco_Financial_Tower_20022011.jpg/480px-Bitexco_Financial_Tower_20022011.jpg" 
+               alt="Bitexco Financial Tower — biểu tượng kiến trúc Sài Gòn" 
+               class="w-full h-[55%] object-cover rounded-lg mb-4"
+               loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-bitexco').style.display='flex'">
+          <div class="fallback-bitexco hidden w-full h-[55%] bg-gradient-to-br from-gold/30 to-ink/40 rounded-lg mb-4 items-center justify-center">
+            <span class="text-gold/50 text-5xl">🌸</span>
+          </div>
+          <p class="page-label" style="color:#C9A227; font-weight:600">🌸 Biểu tượng kiến trúc</p>
+          <h4 class="page-title">Bitexco Financial Tower — 262,5 mét</h4>
+          <p class="page-desc">Thiết kế lấy cảm hứng từ <strong>búp sen</strong> — biểu tượng thanh khiết Việt Nam. Từng là tòa nhà cao nhất VN (2010–2018), với sân đáp trực thăng "lơ lửng" độc đáo tại tầng 52 (cao 191m). Đài quan sát Saigon Skydeck tầng 49 mang tầm nhìn 360° toàn thành phố. Tổng vốn đầu tư 400 triệu USD.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">68 tầng</span>
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">Quận 1</span>
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">2010</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang 3: Cầu Thủ Thiêm 2 -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Thu_Thiem_2_Bridge.jpg/640px-Thu_Thiem_2_Bridge.jpg" 
+               alt="Cầu Thủ Thiêm 2 — cổng chào kiến trúc" 
+               class="w-full h-[55%] object-cover rounded-lg mb-4"
+               loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-cau').style.display='flex'">
+          <div class="fallback-cau hidden w-full h-[55%] bg-gradient-to-br from-jade/30 to-ink/40 rounded-lg mb-4 items-center justify-center">
+            <span class="text-jade/50 text-5xl">🌉</span>
+          </div>
+          <p class="page-label" style="color:#2F4F44; font-weight:600">🌉 Cổng chào kiến trúc · 2022</p>
+          <h4 class="page-title">Cầu Thủ Thiêm 2 — Dây Văng Vươn Cao</h4>
+          <p class="page-desc">Khánh thành 28/4/2022, dài hơn <strong>1,4 km</strong> (phần cầu 886m), 6 làn xe. Trụ tháp chính cao <strong>113 mét</strong> — biểu tượng cổng chào từ trung tâm qua Khu đô thị mới Thủ Thiêm. Thiết kế dây văng với 56 dây cáp, tuổi thọ 100 năm, chịu động đất cấp 7. Tổng vốn đầu tư gần 3.100 tỷ đồng.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Quận 1 ↔ Thủ Đức</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">113m trụ tháp</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang 4: Khu đô thị Thủ Thiêm -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/achievereal.com/27f7c5a98d5f407f81c48bf5e838ff3b09cf153c.jpg" 
+               alt="Khu đô thị Thủ Thiêm — trung tâm tài chính tương lai" 
+               class="w-full h-[55%] object-cover rounded-lg mb-4"
+               loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-thuthiem').style.display='flex'">
+          <div class="fallback-thuthiem hidden w-full h-[55%] bg-gradient-to-br from-jade/30 to-ink/40 rounded-lg mb-4 items-center justify-center">
+            <span class="text-jade/50 text-5xl">🏗️</span>
+          </div>
+          <p class="page-label" style="color:#2F4F44; font-weight:600">🏗️ Trung tâm tài chính tương lai</p>
+          <h4 class="page-title">Thủ Thiêm — Phố Đông Của Sài Gòn</h4>
+          <p class="page-desc">Quy mô <strong>657 ha</strong> ngay bờ Đông sông Sài Gòn, đối diện Quận 1. Được quy hoạch thành <strong>trung tâm tài chính – thương mại mang tầm quốc tế</strong>. Nổi bật với Trung tâm hành chính mới (46,7 ha, quy mô 26 tầng, vốn 30.000 tỷ đồng), quảng trường trung tâm 6,6 ha sức chứa 500.000 người, nhà hát 2.000 chỗ.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">657 ha</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Trung tâm tài chính</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Quốc tế</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang 5: Metro số 1 -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/upload.wikimedia.org/64e922cda04d044cdefa819f5631c9fae6811330.jpg" 
+               alt="Metro số 1 Bến Thành — Suối Tiên" 
+               class="w-full h-[55%] object-cover rounded-lg mb-4"
+               loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-metro').style.display='flex'">
+          <div class="fallback-metro hidden w-full h-[55%] bg-gradient-to-br from-jade/30 to-ink/40 rounded-lg mb-4 items-center justify-center">
+            <span class="text-jade/50 text-5xl">🚇</span>
+          </div>
+          <p class="page-label" style="color:#2F4F44; font-weight:600">🚇 Nhịp thở giao thông xanh</p>
+          <h4 class="page-title">Metro Số 1 — Bến Thành Suối Tiên</h4>
+          <p class="page-desc">Tuyến metro đầu tiên của Việt Nam, dài <strong>19,7 km</strong> với 14 nhà ga (3 ga ngầm, 11 ga trên cao). Kết nối trung tâm Quận 1 đến Suối Tiên, giảm tải áp lực giao thông khổng lồ. Là minh chứng cho tầm nhìn <strong>giao thông xanh – sạch – tiện lợi</strong>, mở ra tương lai đô thị hiện đại cho TP.HCM.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">19,7 km</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">14 nhà ga</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Giao thông xanh</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang 6: Công viên Bến Bạch Đằng -->
+      <div class="page">
+        <div class="page-content">
+          <img src="https://kimi-web-img.kimi.ai/img/ik.imagekit.io/08b4b947d4eeccf706c4962c4600b9be106f8cd1.jpeg" 
+               alt="Công viên Bến Bạch Đằng — không gian công cộng mới" 
+               class="w-full h-[55%] object-cover rounded-lg mb-4"
+               loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.querySelector('.fallback-bachdang').style.display='flex'">
+          <div class="fallback-bachdang hidden w-full h-[55%] bg-gradient-to-br from-gold/30 to-jade/20 rounded-lg mb-4 items-center justify-center">
+            <span class="text-gold/50 text-5xl">🌳</span>
+          </div>
+          <p class="page-label" style="color:#C9A227; font-weight:600">🌳 Không gian công cộng · 2022</p>
+          <h4 class="page-title">Công Viên Bến Bạch Đằng — Phố Đi Bộ Bên Sông</h4>
+          <p class="page-desc">Khánh thành 17/3/2022 sau cải tạo toàn diện. Diện tích <strong>5.000 m²</strong> bên bờ sông Sài Gòn, lát đá bazan, cỏ xanh mướt, bục đá ngồi cân đối. Trở thành điểm hẹn lý tưởng: ngắm cảnh, thư giãn, đọc sách, tập thể dục. Kết nối Waterbus và tour du thuyền — nơi người dân tận hưởng không gian sống đẳng cấp giữa lòng đô thị.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">Quận 1</span>
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">Waterbus</span>
+            <span class="px-2 py-0.5 text-[10px] bg-gold/10 text-gold rounded-full border border-gold/20">Phố đi bộ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang 7: Hầm Thủ Thiêm & Cầu Phú Mỹ -->
+      <div class="page">
+        <div class="page-content">
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-jade/20 mb-4 flex items-center justify-center bg-gradient-to-br from-jade/20 to-ink/40">
+            <span class="text-jade/50 text-5xl">🚇</span>
+          </div>
+          <p class="page-label" style="color:#2F4F44; font-weight:600">🚇 Huyết mạch kết nối</p>
+          <h4 class="page-title">Hầm Thủ Thiêm & Cầu Phú Mỹ</h4>
+          <p class="page-desc"><strong>Hầm Thủ Thiêm</strong> (2011) — công trình giao thông ngầm đầu tiên tại Việt Nam, nối Quận 1 với Thủ Thiêm, rút ngắn khoảng cách và mở không gian phát triển mới. <strong>Cầu Phú Mỹ</strong> (2009) — cây cầu dây văng hiện đại bắc qua sông Sài Gòn, kết nối Quận 2 với Quận 7, giảm tải giao thông huyết mạch và thúc đẩy phát triển khu vực phía Đông.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Hầm ngầm đầu tiên VN</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Cầu dây văng</span>
+            <span class="px-2 py-0.5 text-[10px] bg-jade/10 text-jade rounded-full border border-jade/20">Kết nối Đông – Tây</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trang bìa sau -->
+      <div class="page page-cover" data-density="hard">
+        <div class="page-content">
+          <div class="w-16 h-px bg-gold/40 mb-6"></div>
+          <p class="font-display italic text-paper/80 text-sm md:text-base text-center leading-relaxed">
+            "TP.HCM đang từng bước<br>trở thành điểm đến mới<br>của ngành công nghệ cao<br>trong khu vực."
+          </p>
+          <div class="w-16 h-px bg-gold/40 my-6"></div>
+          <p class="text-paper/30 text-[10px] tracking-wider uppercase">Thành phố Hồ Chí Minh · Hướng tới tương lai</p>
+          <div class="mt-6 w-12 h-12 rounded-full border-2 border-gold/40 flex items-center justify-center">
+            <span class="text-gold text-xl">★</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="flipbook-controls">
+    <button class="flipbook-btn" id="btn-prev" aria-label="Trang trước">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <span class="page-indicator" id="page-indicator">1 / 8</span>
+    <button class="flipbook-btn" id="btn-next" aria-label="Trang sau">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+  <p class="flipbook-hint">Nhấn góc trang hoặc dùng nút để lật · Vuốt trên mobile</p>
+
+</main>
+
+<!-- StPageFlip JS -->
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+<script>
+(function() {
+  const loading = document.getElementById('loading');
+  const flipbookEl = document.getElementById('history-flipbook');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const indicator = document.getElementById('page-indicator');
+
+  // Detect mobile
+  const isMobile = window.innerWidth < 768;
+
+  // Initialize PageFlip
+  const pageFlip = new St.PageFlip(flipbookEl, {
+    width: isMobile ? 300 : 400,
+    height: isMobile ? 450 : 500,
+    size: "fixed",
+    minWidth: 250,
+    maxWidth: 500,
+    minHeight: 350,
+    maxHeight: 700,
+    maxShadowOpacity: 0.5,
+    showCover: true,
+    mobileScrollSupport: true,
+    usePortrait: isMobile,
+    drawShadow: true,
+    flippingTime: 700,
+    startPage: 0,
+    autoSize: true,
+    swipeDistance: 30,
+  });
+
+  pageFlip.loadFromHTML(flipbookEl.querySelectorAll('.page'));
+
+  // Hide loading
+  setTimeout(() => {
+    loading.classList.add('hidden');
+  }, 500);
+
+  // Update indicator
+  function updateIndicator() {
+    const current = pageFlip.getCurrentPageIndex() + 1;
+    const total = pageFlip.getPageCount();
+    indicator.textContent = current + ' / ' + total;
+
+    btnPrev.disabled = current <= 1;
+    btnNext.disabled = current >= total;
+  }
+
+  pageFlip.on('flip', updateIndicator);
+  updateIndicator();
+
+  // Button controls
+  btnPrev.addEventListener('click', () => pageFlip.flipPrev());
+  btnNext.addEventListener('click', () => pageFlip.flipNext());
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+    if (e.key === 'ArrowRight') pageFlip.flipNext();
+  });
+
+  // Resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => pageFlip.update(), 250);
+  });
+})();
+</script>
+
+</body>
+</html>
