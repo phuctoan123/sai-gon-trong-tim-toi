@@ -72,51 +72,59 @@
     text-transform: uppercase;
   }
 
- /* Back to index button */
-.btn-back {
-  min-height: 40px;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(242,237,228,0.2);
-  background: rgba(242,237,228,0.05);
-  color: #F2EDE4;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-}
-
-.btn-back:hover {
-  background: #C9A227;
-  color: #0B1220;
-  border-color: #C9A227;
-  transform: translateX(-2px);
-}
-
-.btn-back svg {
-  flex-shrink: 0;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
   .btn-back {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    gap: 0;
+    min-height: 40px;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(242,237,228,0.2);
+    background: rgba(242,237,228,0.05);
+    color: #F2EDE4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    /* THÊM: reset button defaults */
+    font-family: inherit;
+    outline: none;
   }
 
-  .btn-back span {
-    display: none;
+  /* THÊM: active state cho mobile touch */
+  .btn-back:active {
+    transform: scale(0.95);
+    opacity: 0.8;
   }
-}
+
+  .btn-back:hover {
+    background: #C9A227;
+    color: #0B1220;
+    border-color: #C9A227;
+    transform: translateX(-2px);
+  }
+
+  .btn-back svg {
+    flex-shrink: 0;
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .btn-back {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      gap: 0;
+    }
+
+    .btn-back span {
+      display: none;
+    }
+  }
 
   /* Main layout */
   .flipbook-main {
@@ -327,11 +335,12 @@
     <p class="subtitle">Album lịch sử</p>
     <h1>Bến Nhà Rồng</h1>
   </div>
-  <a
-    href="index.html"
+  <button
+    onclick="goBack()"
     class="btn-back"
     title="Quay lại trang chính"
     aria-label="Quay lại trang chính"
+    type="button"
     >
     <svg
         width="18"
@@ -347,10 +356,8 @@
         <path d="M19 12H5"></path>
         <path d="M12 19l-7-7 7-7"></path>
     </svg>
-
-
-
-  </a>
+    <span>Quay lại</span>
+  </button>
 </header>
 
 <!-- Main -->
@@ -547,6 +554,13 @@
     resizeTimer = setTimeout(() => pageFlip.update(), 250);
   });
 })();
+
+// Back button logic
+function goBack() {
+    // Nếu vào trực tiếp (không qua index) → chuyển về index.html
+    window.location.href = 'index.html';
+  
+}
 </script>
 
 </body>
