@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bến Nhà Rồng — Hành Trình Của Một Dân Tộc</title>
-<meta name="description" content="Trang scrollytelling kể lại hành trình từ Bến Nhà Rồng 1911 đến kỷ nguyên vươn mình của Phường Bình Thạnh, TP. Hồ Chí Minh.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bến Nhà Rồng — Hành Trình Của Một Dân Tộc</title>
+  <meta name="description" content="Trang scrollytelling kể lại hành trình từ Bến Nhà Rồng 1911 đến kỷ nguyên vươn mình của Phường Bình Thạnh, TP. Hồ Chí Minh.">
 
-<!-- ===== Fonts: Playfair Display (display, hỗ trợ dấu tiếng Việt tốt) + Be Vietnam Pro (thân bài, chữ thiết kế tại Việt Nam) ===== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Ngọn cờ đỏ sao vàng mini -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%239A2B2B'/><polygon points='50,15 58,38 82,38 63,53 70,76 50,62 30,76 37,53 18,38 42,38' fill='%23C9A227'/></svg>">
 
-<!-- ===== Tailwind CSS qua CDN ===== -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- ===== Fonts: Playfair Display (display, hỗ trợ dấu tiếng Việt tốt) + Be Vietnam Pro (thân bài, chữ thiết kế tại Việt Nam) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- ===== GSAP + ScrollTrigger qua CDN ===== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- ===== Tailwind CSS qua CDN ===== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ===== GSAP + ScrollTrigger qua CDN ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
   // Cấu hình Tailwind: ánh xạ các biến màu/font theo bảng token thiết kế
@@ -71,8 +74,9 @@
   <!-- Video nền, lặp vô hạn -->
   <video
     class="absolute inset-0 w-full h-full object-cover"
-    src="ben_nha_rong_view.mp4"
+    src="https://res.cloudinary.com/drkat0wu5/video/upload/v1786158523/ben_nha_rong_view.mp4"
     autoplay muted loop playsinline
+    preload="auto"
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
     Trình duyệt của bạn không hỗ trợ video nền.
   </video>
@@ -127,7 +131,7 @@
   <!-- Video nền -->
   <video
     class="video-bg"
-    src="hanh_trinh_bon_ba.mp4"
+    src="https://res.cloudinary.com/drkat0wu5/video/upload/v1786158523/hanh_trinh_bon_ba.mp4"
     autoplay muted loop playsinline
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
   </video>
@@ -439,7 +443,7 @@
   <video
     id="s2-5-video"
     class="absolute inset-0 w-full h-full object-cover z-0"
-    src="dang_thanh_lap.mp4"
+    src="https://res.cloudinary.com/drkat0wu5/video/upload/v1786158523/dang_thanh_lap.mp4"
     poster="https://kimi-web-img.kimi.ai/img/media-cdn-v2.laodong.vn/dc037cb048374d11d18fce012c53889da0b1a5eb.jpg"
     autoplay muted loop playsinline preload="auto"
     decoding="async"
@@ -539,7 +543,7 @@
   <video
     id="s3-video"
     class="absolute inset-0 w-full h-full object-cover z-0"
-    src="di_san.mp4"
+    src="https://res.cloudinary.com/drkat0wu5/video/upload/v1786158523/di_san.mp4"
     poster="https://kimi-web-img.kimi.ai/img/truongchinhtrithainguyen.gov.vn/b7e0c82f916ed17bd8495ff5f3fea94e2c4ba990.jpg"
     autoplay muted loop playsinline preload="auto"
     decoding="async"
@@ -782,7 +786,7 @@ if (document.readyState === 'loading') {
   <!-- Video nền riêng cho Section 4 -->
   <video
     class="video-bg"
-    src="saigon_current.mp4"
+    src="https://res.cloudinary.com/drkat0wu5/video/upload/v1786350355/saigon_current_nen.mp4"
     autoplay muted loop playsinline
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
   </video>
@@ -889,7 +893,7 @@ if (document.readyState === 'loading') {
   <span class="block text-sm font-body font-normal text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
   </span>
     </a>
-    <p class="reveal text-paper/90 text-lg leading-relaxed font-light max-w-2xl mx-auto" data-anim="up">
+    <p class="reveal text-paper/90 text-lg leading-relaxed font-light max-w-2xl mx-auto mb-20" data-anim="up">
       Tiếp nối truyền thống cách mạng từ Bến Nhà Rồng, Phường Bình Thạnh hôm nay chung tay
       xây dựng một đô thị văn minh, hiện đại, nghĩa tình — hướng tới sự phát triển bền vững
       cho các thế hệ mai sau.
@@ -972,8 +976,8 @@ if (document.readyState === 'loading') {
 <!-- ============================================================ -->
 <footer class="relative bg-ink border-t border-paper/10 py-14 px-6 md:px-16 lg:px-24">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-    <p class="font-display italic text-lg text-paper/70">Bến Nhà Rồng — Hành Trình Của Một Dân Tộc</p>
-    <p class="text-paper/40 text-sm tracking-wide">Thực hiện bởi <span class="text-gold">Phuc Toan</span></p>
+    <p class="font-display italic text-lg text-paper/70">"Bến Nhà Rồng — Hành Trình Của Một Dân Tộc"</p>
+    <p class="text-paper/40 text-sm tracking-wide">Design by <span class="text-gold italic font-serif">Phuc Toan</span></p>
   </div>
 </footer>
 
@@ -1202,14 +1206,30 @@ function markVoted() {
   document.querySelector('#vote-fab .animate-ping').style.display = 'none';
 }
 
-// Tooltip
-setTimeout(() => {
+// ===== TOOLTIP ĐỊNH KỲ =====
+(function() {
   const tooltip = document.getElementById('vote-tooltip');
-  if (tooltip && !localStorage.getItem('voted')) {
+  if (!tooltip) return;
+  
+  // Nếu đã vote rồi thì không hiện nữa
+  if (localStorage.getItem('voted')) return;
+  
+  // Hàm hiện tooltip
+  function showTooltip() {
     tooltip.classList.remove('opacity-0', 'translate-y-2');
-    setTimeout(() => tooltip.classList.add('opacity-0', 'translate-y-2'), 5000);
+    // Ẩn sau 5 giây
+    setTimeout(() => {
+      tooltip.classList.add('opacity-0', 'translate-y-2');
+    }, 5000);
   }
-}, 2000);
+  
+  // Hiện lần đầu sau 2 giây
+  setTimeout(showTooltip, 2000);
+  
+  // Hiện lại mỗi 30 giây (30000ms)
+  setInterval(showTooltip, 10000);
+  
+})();
 
 // Đã vote chưa
 window.addEventListener('DOMContentLoaded', () => {
