@@ -139,6 +139,13 @@ body{
 
 /* ===== Before/After Slider - Ảnh không đổi size ===== */
 .before-after-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;        /* Giảm từ full-width xuống 400px */
+  aspect-ratio: 16/9;      /* Giữ tỷ lệ 16:9 */
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;          /* Căn giữa */
   touch-action: none;
   -webkit-user-select: none;
   user-select: none;

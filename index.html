@@ -782,7 +782,7 @@ if (document.readyState === 'loading') {
   <!-- Video nền riêng cho Section 4 -->
   <video
     class="video-bg"
-    src="https://github.com/phuctoan123/sai-gon-trong-tim-toi/releases/download/v1.0.0/sai_gon_now.mp4"
+    src="saigon_current.mp4"
     autoplay muted loop playsinline
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
   </video>
@@ -879,21 +879,91 @@ if (document.readyState === 'loading') {
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <p class="reveal section-eyebrow text-gold mb-4">Ngày mai</p>
     <a href="binhthanh.html" 
-   class="reveal font-display font-semibold text-4xl md:text-6xl mb-8 leading-[1.05] text-paper inline-block group no-underline"
-   data-anim="up"
-   title="Nhấn để xem album Phường Bình Thạnh">
+      class="reveal font-display font-semibold text-4xl md:text-6xl mb-8 leading-[1.05] text-paper inline-block group no-underline"
+      data-anim="up"
+      title="Nhấn để xem album Phường Bình Thạnh">
   <span class="relative inline-block text-paper group-hover:text-gold transition-colors duration-300">
     Kỷ nguyên vươn mình
     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
   </span>
   <span class="block text-sm font-body font-normal text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
   </span>
-</a>
+    </a>
     <p class="reveal text-paper/90 text-lg leading-relaxed font-light max-w-2xl mx-auto" data-anim="up">
       Tiếp nối truyền thống cách mạng từ Bến Nhà Rồng, Phường Bình Thạnh hôm nay chung tay
       xây dựng một đô thị văn minh, hiện đại, nghĩa tình — hướng tới sự phát triển bền vững
       cho các thế hệ mai sau.
     </p>
+
+    <!-- ═══ GRID 3 CỘT: Công trình tiêu biểu ═══ -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+
+      <!-- Card 1: Hạ tầng — Rạch Xuyên Tâm -->
+      <div class="reveal group bg-paper/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-paper/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1" data-anim="up">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="rach_xuyen_tam.jpg" 
+            alt="Phối cảnh cải tạo Rạch Xuyên Tâm"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2F4F44 0%, #0B1220 100%)'">
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 text-gold text-xs tracking-wider uppercase bg-ink/60 px-2 py-1 rounded">Hạ tầng</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-lg font-semibold text-paper mb-2">Cải tạo Rạch Xuyên Tâm</h3>
+          <p class="text-paper/70 text-sm leading-relaxed">
+            Dự án gần <span class="text-gold font-medium">9 km</span>, Phường Bình Thạnh đã hoàn tất 
+            <span class="text-gold font-medium">100%</span> bàn giao mặt bằng — tạo không gian xanh ven kênh.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Nhà ở xã hội — Phan Chu Trinh -->
+      <div class="reveal group bg-paper/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-paper/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1" data-anim="up" style="transition-delay: 0.1s">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="noxh.jpg" 
+            alt="Nhà ở xã hội số 4 Phan Chu Trinh"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2F4F44 0%, #0B1220 100%)'">
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 text-teal-300 text-xs tracking-wider uppercase bg-ink/60 px-2 py-1 rounded">Nhà ở xã hội</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-lg font-semibold text-paper mb-2">Nhà ở xã hội Phan Chu Trinh</h3>
+          <p class="text-paper/70 text-sm leading-relaxed">
+            Đầu tư gần <span class="text-gold font-medium">1.000 tỉ đồng</span>, 
+            <span class="text-gold font-medium">864 căn hộ</span> 20 tầng — giải quyết nhu cầu nhà ở cho người lao động.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Đô thị sáng tạo — Khu CNC -->
+      <div class="reveal group bg-paper/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-paper/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1" data-anim="up" style="transition-delay: 0.2s">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="do_thi_sang_tao.jpg" 
+            alt="Khu công nghệ cao TP.HCM"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            loading="lazy"
+            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2F4F44 0%, #0B1220 100%)'">
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 text-red-300 text-xs tracking-wider uppercase bg-ink/60 px-2 py-1 rounded">Đô thị sáng tạo</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-lg font-semibold text-paper mb-2">Vùng đô thị sáng tạo</h3>
+          <p class="text-paper/70 text-sm leading-relaxed">
+            Kết nối <span class="text-gold font-medium">ĐHQG 650 ha</span> & 
+            <span class="text-gold font-medium">Khu CNC 800 ha</span> — thu hút 
+            vốn đầu tư <span class="text-gold font-medium">nước ngoài</span>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
