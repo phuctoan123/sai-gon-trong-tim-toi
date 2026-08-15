@@ -184,10 +184,10 @@
 
   .page-content img {
     width: 100%;
-    height: 55%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 1rem;
+    border-radius: 0;
+    display: block;
   }
 
   .page-content .page-label {
@@ -329,6 +329,7 @@
   </div>
   <a
     href="index.html"
+    target="_self"
     class="btn-back"
     title="Quay lại trang chính"
     aria-label="Quay lại trang chính"
@@ -375,7 +376,7 @@
       <div class="page">
         <div class="page-content">
           <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ho_Chi_Minh_1921.jpg/480px-Ho_Chi_Minh_1921.jpg" 
+            <img src="kim_lien.jpg" 
                  alt="Khu di tích Kim Liên" 
                  class="w-full h-full object-cover"
                  loading="eager"
@@ -396,7 +397,7 @@
       <div class="page">
         <div class="page-content">
           <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ho_Chi_Minh_1946.jpg/480px-Ho_Chi_Minh_1946.jpg" 
+            <img src="lang_hcm.jpg" 
                  alt="Lăng Chủ tịch Hồ Chí Minh" 
                  class="w-full h-full object-cover"
                  loading="lazy"
@@ -415,8 +416,12 @@
       <!-- Trang 3: Nhà sàn Bác Hồ -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-jade/20 mb-4 flex items-center justify-center bg-gradient-to-br from-jade/20 to-ink/40">
-            <span class="text-jade/50 text-5xl">🏡</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="nha_san_bac_ho.png" 
+                 alt="Nhà Sàn Bác Hồ" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label" style="color:#2F4F44; font-weight:600">🏡 Biểu tượng giản dị</p>
           <h4 class="page-title">Nhà Sàn Bác Hồ — Phủ Chủ Tịch</h4>
@@ -430,8 +435,12 @@
       <!-- Trang 4: Phủ Chủ tịch & Nhà 67 -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4 flex items-center justify-center bg-gradient-to-br from-gold/20 to-ink/40">
-            <span class="text-gold/50 text-5xl">🏛️</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="phu_chu_tich.png" 
+                 alt="Phủ Chủ tịch & Nhà 67" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label">🏛️ Phủ Chủ Tịch · 10 hecta</p>
           <h4 class="page-title">Nơi Bác Sống & Làm Việc Cuối Đời</h4>
@@ -447,8 +456,12 @@
       <!-- Trang 5: 5 Bảo vật quốc gia -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-flag/20 mb-4 flex items-center justify-center bg-gradient-to-br from-flag/20 to-ink/40">
-            <span class="text-flag/50 text-5xl">📜</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="bao_vat_quoc_gia.jpg" 
+                 alt="5 Bảo vật quốc gia" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label" style="color:#9A2B2B; font-weight:600">📜 Bảo vật quốc gia</p>
           <h4 class="page-title">5 Tác Phẩm Bảo Vật Quốc Gia</h4>
@@ -467,8 +480,12 @@
       <!-- Trang 6: Tư tưởng & Đạo đức -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-jade/20 mb-4 flex items-center justify-center bg-gradient-to-br from-jade/20 to-ink/40">
-            <span class="text-jade/50 text-5xl">💎</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="dao_duc.jpg" 
+                 alt="Tư tưởng & Đạo đức" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label" style="color:#2F4F44; font-weight:600">💎 Tư tưởng & Đạo đức</p>
           <h4 class="page-title">Tấm Gương Sáng Ngời Cách Mạng</h4>
@@ -482,8 +499,12 @@
       <!-- Trang 7: UNESCO & Danh nhân văn hóa -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4 flex items-center justify-center bg-gradient-to-br from-gold/20 to-ink/40">
-            <span class="text-gold/50 text-5xl">🌏</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="unesco.jpg" 
+                 alt="UNESCO & Danh nhân văn hóa" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label">🌏 UNESCO · Danh nhân văn hóa</p>
           <h4 class="page-title">Hồ Chí Minh Trong Trái Tim Thế Giới</h4>

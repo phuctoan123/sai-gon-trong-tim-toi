@@ -184,10 +184,10 @@
 
   .page-content img {
     width: 100%;
-    height: 55%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 1rem;
+    border-radius: 0;
+    display: block;
   }
 
   .page-content .page-label {
@@ -310,6 +310,7 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 </style>
+
 <base target="_blank">
 </head>
 
@@ -329,6 +330,7 @@
   </div>
   <a
     href="index.html"
+    target="_self"
     class="btn-back"
     title="Quay lại trang chính"
     aria-label="Quay lại trang chính"
@@ -375,7 +377,7 @@
       <div class="page">
         <div class="page-content">
           <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ho_Chi_Minh_1921.jpg/480px-Ho_Chi_Minh_1921.jpg" 
+            <img src="thoi_tre.jpg" 
                  alt="Nguyễn Ái Quốc thời trẻ" 
                  class="w-full h-full object-cover"
                  loading="eager"
@@ -395,7 +397,7 @@
       <div class="page">
         <div class="page-content">
           <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lenin_1920.jpg/480px-Lenin_1920.jpg" 
+            <img src="chu_nghia_xh.jpg" 
                  alt="Lênin" 
                  class="w-full h-full object-cover"
                  loading="lazy"
@@ -413,8 +415,12 @@
       <!-- Trang 3: Ba tổ chức cộng sản -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-flag/20 mb-4 flex items-center justify-center bg-gradient-to-br from-flag/20 to-ink/40">
-            <span class="text-flag/50 text-5xl">⚡</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="dong_duong.jpg" 
+                 alt="Lênin" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label" style="color:#9A2B2B; font-weight:600">⭐ Tình hình cấp bách · 1929</p>
           <h4 class="page-title">Ba Tổ Chức, Một Con Đường</h4>
@@ -431,7 +437,7 @@
       <div class="page">
         <div class="page-content">
           <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
-            <img src="https://kimi-web-img.kimi.ai/img/media-cdn-v2.laodong.vn/dc037cb048374d11d18fce012c53889da0b1a5eb.jpg" 
+            <img src="hoi_nghi_thanh_lap.jpg" 
                  alt="Hội nghị thống nhất thành lập Đảng" 
                  class="w-full h-full object-cover"
                  loading="lazy"
@@ -447,8 +453,12 @@
       <!-- Trang 5: Các văn kiện lịch sử -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-jade/20 mb-4 flex items-center justify-center bg-gradient-to-br from-jade/20 to-ink/40">
-            <span class="text-jade/50 text-5xl">📜</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="van_kien.jpg" 
+                 alt="Hội nghị thống nhất thành lập Đảng" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label" style="color:#2F4F44; font-weight:600">Văn kiện lịch sử</p>
           <h4 class="page-title">Chánh Cương, Sách Lược & Điều Lệ</h4>
@@ -466,8 +476,12 @@
       <!-- Trang 6: Vụ án Hồng Kông 1931 -->
       <div class="page">
         <div class="page-content">
-          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-flag/20 mb-4 flex items-center justify-center bg-gradient-to-br from-flag/20 to-ink/40">
-            <span class="text-flag/50 text-5xl">⚖️</span>
+          <div class="w-full h-[55%] rounded-lg overflow-hidden border border-gold/20 mb-4">
+            <img src="vu_an_hong_kong.jpg" 
+                 alt="Hội nghị thống nhất thành lập Đảng" 
+                 class="w-full h-full object-cover"
+                 loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
           </div>
           <p class="page-label">Ngày 6 tháng 6 năm 1931</p>
           <h4 class="page-title">Vụ Án Nguyễn Ái Quốc Tại Hồng Kông</h4>
@@ -483,7 +497,7 @@
       <div class="page">
         <div class="page-content">
           <div class="w-full h-[55%] rounded-lg overflow-hidden border border-jade/20 mb-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ho_Chi_Minh_1946.jpg/480px-Ho_Chi_Minh_1946.jpg" 
+            <img src="doc_lap_dan_toc.jpg" 
                  alt="Chủ tịch Hồ Chí Minh" 
                  class="w-full h-full object-cover"
                  loading="lazy"
