@@ -45,6 +45,7 @@
 
 <!-- ===== CSS riêng: hiệu ứng, biến màu, token thiết kế ===== -->
 <link rel="stylesheet" href="style.css">
+<base target="_blank">
 </head>
 
 <body class="text-paper antialiased overflow-x-hidden">
@@ -91,12 +92,13 @@
        class="reveal font-display italic font-semibold text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 inline-block group no-underline" 
        style="opacity: 1; transform: none;"
        data-anim="up" title="Nhấn để xem album lịch sử">
-      <span class="relative inline-block text-paper">
+      <span class="relative inline-block text-paper group-hover:text-gold transition-colors duration-300">
         Bến Nhà Rồng
         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-500 group-hover:w-full"></span>
       </span>
       <span class="block text-sm font-body font-normal not-italic text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
     </a>
+    <p class="tap-hint">👆 Nhấn để xem album</p>
 
     <p class="reveal max-w-xl text-lg md:text-xl text-paper/90 font-light mb-10" data-anim="up">
       Ngày 5/6/1911, Nguyễn Tất Thành rời Bến Nhà Rồng, bắt đầu hành trình tìm con đường giải phóng dân tộc.
@@ -151,6 +153,7 @@
       <span class="block text-sm font-body font-normal text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
       </span>
     </a>
+    <p class="tap-hint">👆 Nhấn để xem album</p>
     <p class="reveal text-paper/80 text-lg leading-relaxed max-w-2xl mb-20 font-light">
       Suốt gần ba thập kỷ, Người đi qua nhiều châu lục, làm đủ nghề để sống và học hỏi,
       từ đó tiếp cận chủ nghĩa Mác – Lênin vào năm 1920 — bước ngoặt xác định con đường
@@ -433,6 +436,21 @@
     }
   }
   
+
+    /* ===== TAP HINT (added) ===== */
+    .tap-hint {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.65);
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      animation: tapPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes tapPulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
 </style>
 
 <!-- ============================================================ -->
@@ -479,6 +497,7 @@
         Nhấn để xem album lịch sử
       </span>
     </a>
+    <p class="tap-hint">👆 Nhấn để xem album</p>
 
     <!-- Sự kiện chính -->
     <p class="reveal text-paper/90 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-8 md:mb-10 max-w-[700px] mx-auto px-2 sm:px-0" data-anim="up"
@@ -568,6 +587,7 @@
       <span class="block text-sm font-body font-normal text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
       </span>
     </a>
+    <p class="tap-hint">👆 Nhấn để xem album</p>
 
     <!-- 4 ý chính — card trong suốt -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
@@ -809,6 +829,7 @@ if (document.readyState === 'loading') {
   <span class="block text-sm font-body font-normal text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
   </span>
 </a>
+    <p class="tap-hint">👆 Nhấn để xem album</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-14">
       <p class="reveal lg:col-span-3 text-paper/80 text-lg leading-relaxed font-light" data-anim="up">
@@ -858,7 +879,7 @@ if (document.readyState === 'loading') {
       </div>
 
     <blockquote class="reveal mt-20 max-w-3xl mx-auto text-center" data-anim="up">
-      <span class="quote-mark text-flag text-5xl block mb-2">&ldquo;</span>
+      <span class="quote-mark text-flag text-3xl md:text-5xl block mb-2">&ldquo;</span>
       <p class="font-display italic text-2xl md:text-3xl leading-snug mb-4">
         Miền Nam yêu quý luôn ở trong trái tim tôi, là máu của máu Việt Nam, là thịt của người Việt Nam.
       </p>
@@ -896,6 +917,7 @@ if (document.readyState === 'loading') {
   <span class="block text-sm font-body font-normal text-gold/70 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
   </span>
     </a>
+    <p class="tap-hint">👆 Nhấn để xem album</p>
     <p class="reveal text-paper/90 text-lg leading-relaxed font-light max-w-2xl mx-auto mb-20" data-anim="up">
       Tiếp nối truyền thống cách mạng từ Bến Nhà Rồng, Phường Bình Thạnh hôm nay chung tay
       xây dựng một đô thị văn minh, hiện đại, nghĩa tình — hướng tới sự phát triển bền vững
@@ -1301,7 +1323,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function createParticles() {
     if (!particlesContainer) return;
     particlesContainer.innerHTML = '';
-    const count = window.innerWidth < 768 ? 20 : 40;
+    const count = window.matchMedia('(max-width: 767px)').matches ? 20 : 40;
     for (let i = 0; i < count; i++) {
       const p = document.createElement('div');
       p.className = 'pt-particle';
@@ -1551,6 +1573,13 @@ body.flipbook-open {
   .pt-active #pt-book-right { animation: none; transform: none; opacity: 1; }
   .pt-active #pt-title { animation: none; transform: none; opacity: 1; }
 }
+    /* ===== RESPONSIVE UTILITIES (added) ===== */
+    .hidden-mobile { display: none; }
+    @media (min-width: 768px) {
+      .hidden-mobile { display: block; }
+      .hidden-desktop { display: none; }
+    }
+
 
 >
 
