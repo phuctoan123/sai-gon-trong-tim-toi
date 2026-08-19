@@ -1,21 +1,62 @@
 // api/track.js
 module.exports = async function handler(req, res) {
-  // 1. Chỉ nhận POST
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  // 2. Lấy dữ liệu
   const ip = req.headers['x-forwarded-for'] || 'unknown-ip';
+  const userAgent = req.headers['user-agent'] || 'unknown-ua';
   const url = req.body?.url || '/';
 
-  // 3. In ra log của Vercel để bạn biết nó đã chạy
-  console.log(`✅ [TEST THÀNH CÔNG] Có người truy cập! IP: ${ip}, URL: ${url}`);
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
-  // 4. Trả về thành công ngay lập tức (Không gọi Supabase)
-  res.status(200).json({ 
-    success: true, 
-    message: 'Đã nhận dữ liệu thành công (Chế độ Test)',
-    data: { ip, url }
-  });
-}
+  // 1. Kiểm tra biến môi trường trước khi làm gì cả
+  if (!supabaseUrl || !supabaseKey) {
+    console.error("❌ LỖI: Thiếu biến môi trường SUPABASE trên Vercel!");
+    return res.status(500).json({ 
+      error: 'Lỗi cấu hình server', 
+      details: 'Thiếu SUPABASE_URL hoặc SUPABASE_ANON_KEY. Hãy kiểm tra Vercel Settings.' 
+    });
+  }
+
+  try {
+    // 2. Gọi API của Supabase
+    const response = await fetch(`${supabaseUrl}/rest/v1/visitors`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Prefer': 'return=minimal' // Không cần trả về dữ liệu vừa insert để nhẹ hơn
+      },
+      body: JSON.stringify({ 
+        ip: ip, 
+        user_agent: userAgent, 
+        url: url 
+      })
+    });
+
+    // 3. Xử lý nếu Supabase từ chối
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`❌ Supabase từ chối (${response.status}):`, errorText);
+      throw new Error(`Supabase lỗi ${response.status}: ${errorText}`);
+    }
+
+    // 4. Thành công
+    console.log("✅ Đã lưu thành công vào Supabase:", { ip, url });
+    res.status(200).json({ 
+      success: true, 
+      message: 'Đã lưu dữ liệu!',
+      data: { ip, url }
+    });
+
+  } catch (error) {
+    console.error("❌ Lỗi khi lưu vào Supabase:", error.message);
+    res.status(500).json({ 
+      error: 'Lỗi server', 
+      details: error.message 
+    });
+  }
+};
