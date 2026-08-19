@@ -50,6 +50,24 @@
 </head>
 
 <script defer src='/_vercel/insights/script.js'></script>
+<script>
+  // Chạy khi trang web tải xong
+  window.addEventListener('load', function() {
+    // Gọi API nội bộ của Vercel
+    fetch('/api/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        url: window.location.pathname // Lấy đường dẫn trang hiện tại
+      })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Tracking thành công:', data))
+    .catch(error => console.error('Tracking lỗi:', error));
+  });
+</script>
 <body class="text-paper antialiased overflow-x-hidden">
 
 <!-- ===== Thanh tiến trình (mobile) ===== -->
