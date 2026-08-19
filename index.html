@@ -51,23 +51,32 @@
 
 <script defer src='/_vercel/insights/script.js'></script>
 <script>
-  // Chạy khi trang web tải xong
   window.addEventListener('load', function() {
-    // Gọi API nội bộ của Vercel
     fetch('/api/track', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        url: window.location.pathname // Lấy đường dẫn trang hiện tại
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: window.location.pathname })
     })
-    .then(response => response.json())
+    .then(async response => {
+      // In ra mã trạng thái để xem Vercel trả về 200, 404 hay 500
+      console.log('API Status:', response.status); 
+      
+      // Kiểm tra xem server có trả về JSON không
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return response.json();
+      } else {
+        // Nếu không phải JSON, đọc text để xem lỗi chi tiết
+        const text = await response.text();
+        console.error('Server trả về không phải JSON:', text);
+        throw new Error('API lỗi: ' + text);
+      }
+    })
     .then(data => console.log('Tracking thành công:', data))
     .catch(error => console.error('Tracking lỗi:', error));
   });
 </script>
+
 <body class="text-paper antialiased overflow-x-hidden">
 
 <!-- ===== Thanh tiến trình (mobile) ===== -->
