@@ -50,7 +50,7 @@
 </head>
 
 <script defer src='/_vercel/insights/script.js'></script>
-<script>
+<!-- <script>
   window.addEventListener('load', function() {
     fetch('/api/track', {
       method: 'POST',
@@ -72,11 +72,27 @@
         throw new Error('API lỗi: ' + text);
       }
     })
-    .then(data => console.log('Tracking thành công:', data))
+    //.then(data => console.log('Tracking thành công:', data))
     .catch(error => console.error('Tracking lỗi:', error));
   });
+</script> -->
+<script>
+  // Chạy ngầm khi trang tải xong
+  window.addEventListener('load', function() {
+    // Gửi dữ liệu lên server (Vercel API)
+    fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: window.location.pathname })
+    })
+    .then(() => {
+      // Thành công thì không làm gì cả (không in log)
+    })
+    .catch(() => {
+      // Nếu có lỗi (mất mạng, server sập...) cũng im lặng bỏ qua, không in log
+    });
+  });
 </script>
-
 <body class="text-paper antialiased overflow-x-hidden">
 
 <!-- ===== Thanh tiến trình (mobile) ===== -->
