@@ -45,8 +45,6 @@
 
 <!-- ===== CSS riêng: hiệu ứng, biến màu, token thiết kế ===== -->
 <link rel="stylesheet" href="style.css">
-<base target="_blank">
-<base target="_blank">
 </head>
 
 <script defer src='/_vercel/insights/script.js'></script>
@@ -122,7 +120,7 @@
     class="absolute inset-0 w-full h-full object-cover"
     src="https://res.cloudinary.com/drkat0wu5/video/upload/f_auto,q_auto/v1786158523/ben_nha_rong_view.mp4"
     autoplay muted loop playsinline
-    preload="auto"
+    preload="metadata"
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
     Trình duyệt của bạn không hỗ trợ video nền.
   </video>
@@ -180,7 +178,7 @@
     class="video-bg"
     src="https://res.cloudinary.com/drkat0wu5/video/upload/f_auto,q_auto/v1786158523/hanh_trinh_bon_ba.mp4"
     autoplay muted loop playsinline
-    preload="auto"
+    preload="metadata"
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
   </video>
   <div class="overlay-ink absolute inset-0 z-[1]"></div>
@@ -510,7 +508,7 @@
     src="https://res.cloudinary.com/drkat0wu5/video/upload/f_auto,q_auto/v1786158523/dang_thanh_lap.mp4"
     poster="https://kimi-web-img.kimi.ai/img/media-cdn-v2.laodong.vn/dc037cb048374d11d18fce012c53889da0b1a5eb.jpg"
     autoplay muted loop playsinline 
-    preload="auto"
+    preload="metadata"
     decoding="async"
     onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 50%, #2F4F44 100%)';"
   >
@@ -611,7 +609,7 @@
     class="absolute inset-0 w-full h-full object-cover z-0"
     src="https://res.cloudinary.com/drkat0wu5/video/upload/f_auto,q_auto/v1786158523/di_san.mp4"
     poster="https://kimi-web-img.kimi.ai/img/truongchinhtrithainguyen.gov.vn/b7e0c82f916ed17bd8495ff5f3fea94e2c4ba990.jpg"
-    autoplay muted loop playsinline preload="auto"
+    autoplay muted loop playsinline preload="metadata"
     decoding="async"
     onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #0B1220 0%, #1a1a2e 50%, #0B1220 100%)';"
   >
@@ -737,7 +735,7 @@
 <!-- Modal fullscreen cho panorama -->
 <div id="panorama-modal" class="fixed inset-0 z-50 hidden">
   <div class="absolute inset-0 bg-ink/95 backdrop-blur-sm" id="modal-backdrop"></div>
-  <button id="close-modal" class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-paper/10 hover:bg-paper/20 flex items-center justify-center text-paper transition-colors">
+  <button id="close-modal" type="button" aria-label="Đóng trải nghiệm 360 độ" class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-paper/10 hover:bg-paper/20 flex items-center justify-center text-paper transition-colors">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -855,7 +853,7 @@ if (document.readyState === 'loading') {
     class="video-bg"
     src="https://res.cloudinary.com/drkat0wu5/video/upload/f_auto,q_auto/v1786350355/saigon_current_nen.mp4"
     autoplay muted loop playsinline
-    preload="auto"
+    preload="metadata"
     poster="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Crect width='100%25' height='100%25' fill='%230B1220'/%3E%3C/svg%3E">
   </video>
   <!-- Lớp phủ tối rất nhẹ để chữ đọc được -->
@@ -1100,7 +1098,7 @@ if (document.readyState === 'loading') {
       
       <!-- Email -->
       <div class="mb-4">
-        <label class="block text-paper/70 text-xs font-medium mb-1.5 tracking-wide uppercase">Email của bạn</label>
+        <label for="vote-email" class="block text-paper/70 text-xs font-medium mb-1.5 tracking-wide uppercase">Email của bạn</label>
         <input 
           type="email" 
           id="vote-email" 
@@ -1257,9 +1255,10 @@ async function submitVote(e) {
     
   } catch (error) {
     console.error('Vote error:', error);
-    // Vẫn hiện success vì thường vẫn gửi được
-    showSuccess();
-    markVoted();
+    alert('Không thể gửi bình chọn. Vui lòng kiểm tra kết nối và thử lại.');
+    submitBtn.disabled = false;
+    submitText.textContent = 'Gửi bình chọn';
+    spinner.classList.add('hidden');
   }
 }
 
@@ -1402,8 +1401,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-</body>
-</html
+<style>
 
 #flipbook-modal.hidden {
   opacity: 0;
@@ -1626,7 +1624,7 @@ body.flipbook-open {
     }
 
 
->
+</style>
 
 <!-- ============================================================ -->
 <!-- SCRIPT: GSAP ScrollTrigger — hiệu ứng cuộn & tương tác        -->

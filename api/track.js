@@ -15,8 +15,7 @@ module.exports = async function handler(req, res) {
   if (!supabaseUrl || !supabaseKey) {
     console.error("❌ LỖI: Thiếu biến môi trường SUPABASE trên Vercel!");
     return res.status(500).json({ 
-      error: 'Lỗi cấu hình server', 
-      details: 'Thiếu SUPABASE_URL hoặc SUPABASE_ANON_KEY. Hãy kiểm tra Vercel Settings.' 
+      error: 'Lỗi cấu hình server'
     });
   }
 
@@ -45,18 +44,13 @@ module.exports = async function handler(req, res) {
     }
 
     // 4. Thành công
-    console.log("✅ Đã lưu thành công vào Supabase:", { ip, url });
-    res.status(200).json({ 
-      success: true, 
-      message: 'Đã lưu dữ liệu!',
-      data: { ip, url }
-    });
+    console.log("✅ Đã lưu lượt truy cập thành công");
+    res.status(204).end();
 
   } catch (error) {
     console.error("❌ Lỗi khi lưu vào Supabase:", error.message);
     res.status(500).json({ 
-      error: 'Lỗi server', 
-      details: error.message 
+      error: 'Lỗi server'
     });
   }
 };
