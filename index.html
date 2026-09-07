@@ -45,8 +45,7 @@
 
 <!-- ===== CSS riêng: hiệu ứng, biến màu, token thiết kế ===== -->
 <link rel="stylesheet" href="style.css">
-<base target="_blank">
-<base target="_blank">
+
 </head>
 
 <script defer src='/_vercel/insights/script.js'></script>
@@ -86,7 +85,7 @@
       body: JSON.stringify({ url: window.location.pathname })
     })
     .then(() => {
-      // Thành công thì không làm gì cả (không in log)
+      // không in log
     })
     .catch(() => {
       // Nếu có lỗi (mất mạng, server sập...) cũng im lặng bỏ qua, không in log
@@ -133,7 +132,7 @@
   <div class="relative z-10 w-full px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
     <p class="reveal section-eyebrow text-gold mb-4" data-anim="up">Sài Gòn · 5 tháng 6 năm 1911</p>
 
-    <a href="flipbook.html" id="flipbook-trigger"
+    <a href="flipbook/" id="flipbook-trigger"
        class="reveal font-display italic font-semibold text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6 inline-block group no-underline" 
        style="opacity: 1; transform: none;"
        data-anim="up" title="Nhấn để xem album lịch sử" target="_self">
@@ -187,7 +186,7 @@
 
   <div class="relative z-10 max-w-4xl mx-auto">
     <p class="reveal section-eyebrow text-gold mb-4">Từ 1911 — đến 1941</p>
-    <a href="journey.html" 
+    <a href="journey/" 
       class="reveal font-display font-semibold text-4xl md:text-5xl mb-8 leading-tight inline-block group no-underline"
       data-anim="up"
       title="Nhấn để xem album hành trình 30 năm" target="_self">
@@ -529,7 +528,7 @@
     </p>
 
     <!-- Tiêu đề -->
-    <a href="party.html" 
+    <a href="party/" 
       class="reveal font-display font-bold text-paper mb-6 md:mb-8 leading-[1.05] md:leading-[1.1] md:whitespace-nowrap inline-block group no-underline"
       data-anim="up" 
       style="font-size: clamp(1.75rem, 6vw, 3.5rem); text-shadow: 0 4px 30px rgba(0,0,0,0.7), 0 0 60px rgba(154,43,43,0.4), 0 2px 4px rgba(0,0,0,0.5);"
@@ -621,7 +620,7 @@
   
   <div class="relative z-10 max-w-6xl mx-auto">
     <p class="reveal section-eyebrow text-gold mb-4">Di sản</p>
-    <a href="legacy.html" 
+    <a href="legacy/" 
       class="reveal font-display font-semibold text-4xl md:text-5xl mb-16 leading-tight inline-block group no-underline"
       data-anim="up"
       title="Nhấn để xem album di sản" target="_self">
@@ -737,7 +736,8 @@
 <!-- Modal fullscreen cho panorama -->
 <div id="panorama-modal" class="fixed inset-0 z-50 hidden">
   <div class="absolute inset-0 bg-ink/95 backdrop-blur-sm" id="modal-backdrop"></div>
-  <button id="close-modal" class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-paper/10 hover:bg-paper/20 flex items-center justify-center text-paper transition-colors">
+  <button id="close-modal" type="button" aria-label="Đóng trải nghiệm 360 độ" class="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-paper/10 
+  hover:bg-paper/20 flex items-center justify-center text-paper transition-colors">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -758,7 +758,7 @@ let fullscreenViewer = null;
 function initSmallPanorama() {
   smallViewer = pannellum.viewer('panorama', {
     type: 'equirectangular',
-    panorama: 'vietnam_360.png', // Thay bằng đường dẫn ảnh 360° của bạn
+    panorama: 'assets/vietnam_360.png',
     autoLoad: true,
     compass: false,
     showZoomCtrl: false,
@@ -781,7 +781,7 @@ function initSmallPanorama() {
 function initFullscreenPanorama() {
   fullscreenViewer = pannellum.viewer('panorama-fullscreen', {
     type: 'equirectangular',
-    panorama: 'vietnam_360.png', // Thay bằng đường dẫn ảnh 360° của bạn
+    panorama: 'assets/vietnam_360.png', // Thay bằng đường dẫn ảnh 360° của bạn
     autoLoad: true,
     compass: true,
     showZoomCtrl: true,
@@ -863,7 +863,7 @@ if (document.readyState === 'loading') {
 
   <div class="relative z-10 max-w-6xl mx-auto">
     <p class="reveal section-eyebrow text-jade text-emerald-300 mb-4">Hôm nay</p>
-    <a href="development.html" 
+    <a href="development/" 
    class="reveal font-display font-semibold text-4xl md:text-5xl mb-10 leading-tight max-w-3xl inline-block group no-underline"
    data-anim="up"
    title="Nhấn để xem album công trình" target="_self">
@@ -897,14 +897,14 @@ if (document.readyState === 'loading') {
           
           <!-- Layer AFTER (mới) - nền, full size -->
           <div class="ba-layer ba-after-layer absolute inset-0">
-            <img src="anh_moi.png" alt="Tòa Đô chính hiện tại" class="ba-img" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2F4F44 0%, #0B1220 100%)'">
+            <img src="assets/anh_moi.png" alt="Tòa Đô chính hiện tại" class="ba-img" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2F4F44 0%, #0B1220 100%)'">
             <!-- Label AFTER -->
             <!-- <span class="absolute top-3 right-3 bg-ink/70 text-gold text-[.65rem] tracking-[0.2em] uppercase px-2 py-1 rounded z-[5]">Nay</span> -->
           </div>
           
           <!-- Layer BEFORE (cũ) - clip theo width, ảnh giữ nguyên size -->
           <div class="ba-layer ba-before-layer absolute inset-0 overflow-hidden" id="ba-before" style="width: 50%;">
-            <img src="anh_cu.png" alt="Tòa Đô chính xưa" class="ba-img" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
+            <img src="assets/anh_cu.png" alt="Tòa Đô chính xưa" class="ba-img" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%)'">
             <!-- Label BEFORE -->
             <!-- <span class="absolute top-3 left-3 bg-ink/70 text-gold text-[.65rem] tracking-[0.2em] uppercase px-2 py-1 rounded z-[5]">Xưa</span> -->
           </div>
@@ -951,7 +951,7 @@ if (document.readyState === 'loading') {
 
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <p class="reveal section-eyebrow text-gold mb-4">Ngày mai</p>
-    <a href="binhthanh.html" 
+    <a href="binhthanh/" 
       class="reveal font-display font-semibold text-4xl md:text-6xl mb-8 leading-[1.05] text-paper inline-block group no-underline"
       data-anim="up"
       title="Nhấn để xem album Phường Bình Thạnh" target="_self">
@@ -976,7 +976,7 @@ if (document.readyState === 'loading') {
       <div class="reveal group bg-paper/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-paper/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1" data-anim="up">
         <div class="relative h-48 overflow-hidden">
           <img 
-            src="rach_xuyen_tam.jpg" 
+            src="assets/rach_xuyen_tam.jpg" 
             alt="Phối cảnh cải tạo Rạch Xuyên Tâm"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             loading="lazy"
@@ -997,7 +997,7 @@ if (document.readyState === 'loading') {
       <div class="reveal group bg-paper/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-paper/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1" data-anim="up" style="transition-delay: 0.1s">
         <div class="relative h-48 overflow-hidden">
           <img 
-            src="noxh.jpg" 
+            src="assets/noxh.jpg" 
             alt="Nhà ở xã hội số 4 Phan Chu Trinh"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             loading="lazy"
@@ -1018,7 +1018,7 @@ if (document.readyState === 'loading') {
       <div class="reveal group bg-paper/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-paper/10 hover:border-gold/40 transition-all duration-500 hover:-translate-y-1" data-anim="up" style="transition-delay: 0.2s">
         <div class="relative h-48 overflow-hidden">
           <img 
-            src="do_thi_sang_tao.jpg" 
+            src="assets/do_thi_sang_tao.jpg" 
             alt="Khu công nghệ cao TP.HCM"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             loading="lazy"
@@ -1100,7 +1100,7 @@ if (document.readyState === 'loading') {
       
       <!-- Email -->
       <div class="mb-4">
-        <label class="block text-paper/70 text-xs font-medium mb-1.5 tracking-wide uppercase">Email của bạn</label>
+        <label for="vote-email" class="block text-paper/70 text-xs font-medium mb-1.5 tracking-wide uppercase">Email của bạn</label>
         <input 
           type="email" 
           id="vote-email" 
@@ -1396,243 +1396,244 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Chuyển trang sau khi animation hoàn tất
     setTimeout(function() {
-      window.location.href = 'flipbook.html';
+      window.location.href = 'flipbook/';
     }, 2000);
   });
 });
 </script>
 
 </body>
-</html
+</html>
 
-#flipbook-modal.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-#flipbook-modal:not(.hidden) {
-  opacity: 1;
-  pointer-events: auto;
-}
+<style>
+  #flipbook-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  #flipbook-modal:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-/* Flipbook Container */
-.flipbook-container {
-  width: 90vw;
-  max-width: 900px;
-  height: 60vh;
-  max-height: 600px;
-}
-
-@media (min-width: 768px) {
+  /* Flipbook Container */
   .flipbook-container {
-    width: 800px;
-    height: 500px;
+    width: 90vw;
+    max-width: 900px;
+    height: 60vh;
+    max-height: 600px;
   }
-}
 
-@media (max-width: 640px) {
-  .flipbook-container {
-    width: 95vw;
-    height: 50vh;
-    min-height: 350px;
-  }
-}
-
-/* Page styling */
-#history-flipbook .page {
-  background: #F2EDE4;
-  border-radius: 4px;
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
-}
-
-#history-flipbook .page-cover {
-  background: linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%);
-}
-
-#history-flipbook .page-cover .page-content {
-  color: #F2EDE4;
-}
-
-/* StPageFlip overrides */
-.stf__wrapper {
-  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
-  border-radius: 8px;
-}
-
-.stf__block {
-  border-radius: 4px;
-}
-
-/* Page inner shadow for depth */
-.stf__item {
-  box-shadow: inset -10px 0 20px rgba(0,0,0,0.1);
-}
-
-/* Click hint animation */
-@keyframes pulse-hint {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-#open-flipbook .underline-hint {
-  animation: pulse-hint 2s infinite;
-}
-
-/* Prevent body scroll when modal open */
-body.flipbook-open {
-  overflow: hidden;
-}
-
-/* Mobile landscape adjustments */
-@media (max-height: 500px) and (orientation: landscape) {
-  .flipbook-container {
-    height: 75vh;
-  }
-  #flipbook-modal h3 {
-    font-size: 1rem;
-  }
-}
-
-
-
-/* ===== PAGE TRANSITION ANIMATION ===== */
-
-/* Đảm bảo transition overlay luôn ở trên cùng */
-#page-transition {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-/* Khi active, cho phép tương tác */
-#page-transition.pt-active {
-  pointer-events: auto;
-}
-
-/* Keyframes */
-@keyframes pt-book-open-left {
-  0% { transform: perspective(2000px) rotateY(90deg); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: perspective(2000px) rotateY(0deg); opacity: 1; }
-}
-
-@keyframes pt-book-open-right {
-  0% { transform: perspective(2000px) rotateY(-90deg); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: perspective(2000px) rotateY(0deg); opacity: 1; }
-}
-
-@keyframes pt-title-zoom {
-  0% { transform: scale(0.3) translateY(50px); opacity: 0; }
-  50% { transform: scale(1) translateY(0); opacity: 1; }
-  80% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1.2); opacity: 0; }
-}
-
-@keyframes pt-particle-float {
-  0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  20% { opacity: 0.8; }
-  80% { opacity: 0.8; }
-  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
-}
-
-@keyframes pt-gold-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(201,162,39,0.3); }
-  50% { box-shadow: 0 0 60px rgba(201,162,39,0.6), 0 0 100px rgba(201,162,39,0.2); }
-}
-
-/* Classes applied by JS */
-.pt-active #pt-backdrop {
-  opacity: 1;
-}
-
-.pt-active #pt-book-left {
-  animation: pt-book-open-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.pt-active #pt-book-right {
-  animation: pt-book-open-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
-}
-
-.pt-active #pt-title {
-  animation: pt-title-zoom 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
-}
-
-.pt-active #pt-particles .pt-particle {
-  animation: pt-particle-float 2s ease-out forwards;
-}
-
-/* Book spine effect */
-#pt-book-left::after,
-#pt-book-right::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 3px;
-}
-
-#pt-book-left::after {
-  right: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-}
-
-#pt-book-right::after {
-  left: 0;
-  background: linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-}
-
-/* Texture on book pages */
-#pt-book-left,
-#pt-book-right {
-  background: 
-    linear-gradient(90deg, rgba(201,162,39,0.03) 0%, transparent 5%, transparent 95%, rgba(201,162,39,0.03) 100%),
-    #F2EDE4;
-}
-
-/* Particle styling */
-.pt-particle {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-/* Mobile: simplify transition */
-@media (max-width: 640px) {
-  @keyframes pt-book-open-left {
-    0% { transform: perspective(1000px) rotateY(90deg); opacity: 0; }
-    100% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
-  }
-  @keyframes pt-book-open-right {
-    0% { transform: perspective(1000px) rotateY(-90deg); opacity: 0; }
-    100% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
-  }
-  #pt-title h2 {
-    font-size: 2.5rem;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .pt-active #pt-backdrop { transition: none; opacity: 1; }
-  .pt-active #pt-book-left { animation: none; transform: none; opacity: 1; }
-  .pt-active #pt-book-right { animation: none; transform: none; opacity: 1; }
-  .pt-active #pt-title { animation: none; transform: none; opacity: 1; }
-}
-    /* ===== RESPONSIVE UTILITIES (added) ===== */
-    .hidden-mobile { display: none; }
-    @media (min-width: 768px) {
-      .hidden-mobile { display: block; }
-      .hidden-desktop { display: none; }
+  @media (min-width: 768px) {
+    .flipbook-container {
+      width: 800px;
+      height: 500px;
     }
+  }
+
+  @media (max-width: 640px) {
+    .flipbook-container {
+      width: 95vw;
+      height: 50vh;
+      min-height: 350px;
+    }
+  }
+
+  /* Page styling */
+  #history-flipbook .page {
+    background: #F2EDE4;
+    border-radius: 4px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
+  }
+
+  #history-flipbook .page-cover {
+    background: linear-gradient(135deg, #9A2B2B 0%, #0B1220 100%);
+  }
+
+  #history-flipbook .page-cover .page-content {
+    color: #F2EDE4;
+  }
+
+  /* StPageFlip overrides */
+  .stf__wrapper {
+    box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+    border-radius: 8px;
+  }
+
+  .stf__block {
+    border-radius: 4px;
+  }
+
+  /* Page inner shadow for depth */
+  .stf__item {
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.1);
+  }
+
+  /* Click hint animation */
+  @keyframes pulse-hint {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  #open-flipbook .underline-hint {
+    animation: pulse-hint 2s infinite;
+  }
+
+  /* Prevent body scroll when modal open */
+  body.flipbook-open {
+    overflow: hidden;
+  }
+
+  /* Mobile landscape adjustments */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .flipbook-container {
+      height: 75vh;
+    }
+    #flipbook-modal h3 {
+      font-size: 1rem;
+    }
+  }
 
 
->
+
+  /* ===== PAGE TRANSITION ANIMATION ===== */
+
+  /* Đảm bảo transition overlay luôn ở trên cùng */
+  #page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  /* Khi active, cho phép tương tác */
+  #page-transition.pt-active {
+    pointer-events: auto;
+  }
+
+  /* Keyframes */
+  @keyframes pt-book-open-left {
+    0% { transform: perspective(2000px) rotateY(90deg); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: perspective(2000px) rotateY(0deg); opacity: 1; }
+  }
+
+  @keyframes pt-book-open-right {
+    0% { transform: perspective(2000px) rotateY(-90deg); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: perspective(2000px) rotateY(0deg); opacity: 1; }
+  }
+
+  @keyframes pt-title-zoom {
+    0% { transform: scale(0.3) translateY(50px); opacity: 0; }
+    50% { transform: scale(1) translateY(0); opacity: 1; }
+    80% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+  }
+
+  @keyframes pt-particle-float {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+  }
+
+  @keyframes pt-gold-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(201,162,39,0.3); }
+    50% { box-shadow: 0 0 60px rgba(201,162,39,0.6), 0 0 100px rgba(201,162,39,0.2); }
+  }
+
+  /* Classes applied by JS */
+  .pt-active #pt-backdrop {
+    opacity: 1;
+  }
+
+  .pt-active #pt-book-left {
+    animation: pt-book-open-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .pt-active #pt-book-right {
+    animation: pt-book-open-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+  }
+
+  .pt-active #pt-title {
+    animation: pt-title-zoom 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+  }
+
+  .pt-active #pt-particles .pt-particle {
+    animation: pt-particle-float 2s ease-out forwards;
+  }
+
+  /* Book spine effect */
+  #pt-book-left::after,
+  #pt-book-right::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 3px;
+  }
+
+  #pt-book-left::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  }
+
+  #pt-book-right::after {
+    left: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  }
+
+  /* Texture on book pages */
+  #pt-book-left,
+  #pt-book-right {
+    background: 
+      linear-gradient(90deg, rgba(201,162,39,0.03) 0%, transparent 5%, transparent 95%, rgba(201,162,39,0.03) 100%),
+      #F2EDE4;
+  }
+
+  /* Particle styling */
+  .pt-particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Mobile: simplify transition */
+  @media (max-width: 640px) {
+    @keyframes pt-book-open-left {
+      0% { transform: perspective(1000px) rotateY(90deg); opacity: 0; }
+      100% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
+    }
+    @keyframes pt-book-open-right {
+      0% { transform: perspective(1000px) rotateY(-90deg); opacity: 0; }
+      100% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
+    }
+    #pt-title h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .pt-active #pt-backdrop { transition: none; opacity: 1; }
+    .pt-active #pt-book-left { animation: none; transform: none; opacity: 1; }
+    .pt-active #pt-book-right { animation: none; transform: none; opacity: 1; }
+    .pt-active #pt-title { animation: none; transform: none; opacity: 1; }
+  }
+      /* ===== RESPONSIVE UTILITIES (added) ===== */
+      .hidden-mobile { display: none; }
+      @media (min-width: 768px) {
+        .hidden-mobile { display: block; }
+        .hidden-desktop { display: none; }
+      }
+
+
+</style>
 
 <!-- ============================================================ -->
 <!-- SCRIPT: GSAP ScrollTrigger — hiệu ứng cuộn & tương tác        -->
 <!-- ============================================================ -->
 <!-- ===== JS riêng: hiệu ứng cuộn GSAP & tương tác ===== -->
- 
+
 <script src="main.js"></script>
 
 </body>
